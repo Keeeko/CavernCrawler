@@ -13,23 +13,32 @@ namespace CavernCrawler
 {
     class Map
     {
+
+        public struct MapCoordinates
+        {
+            public int x;
+            public int y;
+
+            public MapCoordinates(int xVal, int yVal)
+            {
+                x = xVal;
+                y = yVal;
+            }
+
+        };
+
         const float TILE_SIZE = 32.0f;
 
         public int mapSizeX;
         public int mapSizeY;
 
-        //Graphics 
-        Texture floorTexture;
-        Texture wallTexture;
-        Texture playerTexture;
-        Texture stairsTexture;
-
         //Variable decleration is in order of screen draw order
         public int[,] backgroundtiles;
-        public Dictionary<Vector2f, List<Item>> itemMap;
-        public Dictionary<Vector2f, Character> characterMap; //Stores position of characters on map
+        public Dictionary<MapCoordinates, List<Item>> itemMap;
+        public Dictionary<MapCoordinates, Character> characterMap; //Stores position of characters on map
         public bool[,] fogOfWarTiles; //Determines of a square is covered by fogOfWar
 
+        Dictionary<int, Texture> mapTileGraphics;
         public List<Room> rooms;
 
         Character player;
@@ -50,62 +59,94 @@ namespace CavernCrawler
                 }
             }
 
+            mapTileGraphics = new Dictionary<int, Texture>();
+            itemMap = new Dictionary<MapCoordinates, List<Item>>();
+            characterMap = new Dictionary<MapCoordinates, Character>();
+
             rooms = new List<Room>();
             MapGenerator mapGen = new MapGenerator();
-
             mapGen.GenerateDungeon(this);
 
-            player = new Character();
-            player.position = new Vector2f(rooms[0].originX, rooms[0].originY);
-            
 
             LoadMapResources();
+            PlaceCharacters();
+        }
+
+        public void PlaceCharacters()
+        {
+            player = new Character();
+            player.xPos = rooms[0].originX;
+            player.yPos = rooms[0].originY;
+            player.graphicsID = 99;
+            characterMap.Add(new MapCoordinates(player.xPos, player.yPos), player);
+
+            PlaceMonster(rooms[0].originX + 2, rooms[0].originY + 2);
+        }
+
+        public void PlaceMonster(int xPos, int yPos)
+        {
+            if(characterMap.ContainsKey(new MapCoordinates(xPos, yPos)))
+            {
+                Console.WriteLine("Can't place character at: " + xPos + ", " + yPos);
+            }
+            else
+            {
+                Character monster = new Character();
+                monster.graphicsID = 91;
+                monster.Move(xPos, yPos);
+                characterMap.Add(new MapCoordinates(xPos, yPos), monster);
+                
+
+            }
         }
 
         public void LoadMapResources()
         {
-            wallTexture = new Texture(@"Content\Textures\Tx_Dungeon\wall\brick_dark0.png");
-            floorTexture = new Texture(@"Content\Textures\Tx_Dungeon\floor\cobble_blood1.png");
-            playerTexture = new Texture(@"Content\Textures\Tx_Player\base\human_m.png");
-            stairsTexture = new Texture(@"Content\Textures\Tx_Dungeon\gateways\stone_stairs_down.png");
+            /* Dungeon tiles: 1 - 20, Item graphics: 21 - 50, Enemies: 51 - 75, Player base graphic: 99 */
+
+            //Floor texutres
+            mapTileGraphics[0] = new Texture(@"Content\Textures\Tx_Dungeon\floor\cobble_blood1.png");
+
+            //Wall textures
+            mapTileGraphics[1] = new Texture(@"Content\Textures\Tx_Dungeon\wall\brick_dark0.png");
+
+            //Stairway
+            mapTileGraphics[2] = new Texture(@"Content\Textures\Tx_Dungeon\gateways\stone_stairs_down.png");
+
+            //Chracter textures
+            mapTileGraphics[91] = new Texture(@"Content\Textures\Tx_Monster\dragon.png");
+            mapTileGraphics[99] = new Texture(@"Content\Textures\Tx_Player\base\human_m.png");
+
+
+
         }
 
         public void DrawMap(RenderWindow window)
         {
+            
             for (int x = 0; x < mapSizeX; x++)
             {
                 for (int y = 0; y < mapSizeY; y++)
                 {
-                    if (backgroundtiles[x, y] == 0)
+                    //Draw map tiles
+                        //retrieve the correct texture for displaying by using the tile value of the current square as a key in a texture dictionary
+                        Sprite tempSprite = new Sprite(mapTileGraphics[backgroundtiles[x,y]]);
+                        tempSprite.Position = new Vector2f(x *  TILE_SIZE, y * TILE_SIZE);
+                        window.Draw(tempSprite);
+
+                    //Draw items
+
+                    //Draw characters
+                    if (characterMap.ContainsKey(new MapCoordinates(x, y)))
                     {
-                        Sprite tempSprite1 = new Sprite(floorTexture);
-                        tempSprite1.Position = new Vector2f(x *  TILE_SIZE, y * TILE_SIZE);
-                        window.Draw(tempSprite1);
-
-                    }
-
-                    if (backgroundtiles[x, y] == 1)
-                    {
-                        Sprite tempSprite2 = new Sprite(wallTexture);
-                        tempSprite2.Position = new Vector2f(x * TILE_SIZE, y * TILE_SIZE);
-                        window.Draw(tempSprite2);
-
-                    }
-
-                    if (backgroundtiles[x, y] == 2)
-                    {
-                        Sprite tempSprite3 = new Sprite(stairsTexture);
-                        tempSprite3.Position = new Vector2f(x * TILE_SIZE, y * TILE_SIZE);
-                        window.Draw(tempSprite3);
-
+                        //If there is a character at this key on the dictionary (by using their map coordinates as a key) then retrieve their
+                        //characters graphicsID and use this to display the texture from the texture dictionary
+                        Sprite tempSpriteC = new Sprite(mapTileGraphics[characterMap[new MapCoordinates(x, y)].graphicsID]);
+                        tempSpriteC.Position = new Vector2f(x * TILE_SIZE, y * TILE_SIZE);
+                        window.Draw(tempSpriteC);
                     }
                 }
             }
-
-            //Draw characters
-            Sprite tempSprite = new Sprite(playerTexture);
-            tempSprite.Position = new Vector2f( player.position.X * TILE_SIZE, player.position.Y * TILE_SIZE);
-            window.Draw(tempSprite);
         }
 
         public int GetMapTile(int xPos, int yPos)

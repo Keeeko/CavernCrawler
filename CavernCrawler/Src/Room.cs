@@ -13,8 +13,8 @@ namespace CavernCrawler
         public int originX;
         public int originY;
 
-        int width;
-        int height;
+        public int width;
+        public int height;
 
         int[,] tiles;
 

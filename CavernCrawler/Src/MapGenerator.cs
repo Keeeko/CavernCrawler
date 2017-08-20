@@ -14,6 +14,11 @@ namespace CavernCrawler
         int maxRoomWidth;
         int maxRoomHeight;
 
+        int minTotalMonsters;
+        int minTotalMonstersPerRoom;
+        int maximumTotalMonsters;
+        int maxMonstersPerRoom;
+
         int maxRoomPlacementTries;
 
         Map theMap;
@@ -33,6 +38,12 @@ namespace CavernCrawler
         {
             minRoomHeight = 3;
             minRoomWidth = 3;
+
+            minTotalMonsters = 6;
+            minTotalMonstersPerRoom = 0;
+
+            maxMonstersPerRoom = 4;
+            maximumTotalMonsters = 20;
 
             maxRoomWidth = 9;
             maxRoomHeight = 9;
@@ -55,7 +66,7 @@ namespace CavernCrawler
                 int height = randomNum.Next(minRoomHeight, maxRoomHeight);
                 
                 //Check if the desired room intersects with any existing rooms, if it does; skip it and start process again
-                if(CheckForIntersection(originX, originY, width, height, map) == false)
+                if(CheckForIntersection(originX, originY, width + 1, height + 1, map) == false)
                 {
                     map.CreateRoom(originX, originY, width, height, 0);
                 }
@@ -67,7 +78,14 @@ namespace CavernCrawler
                 Console.WriteLine("Attempting to connect two rooms");
                 JoinRooms(theMap.rooms[i], theMap.rooms[i + 1]);
             }
-
+            
+            //Place monsters
+            for(int i = 0; i < maximumTotalMonsters; i ++)
+            {
+                Room choosenRoom = theMap.rooms[randomNum.Next(0, theMap.rooms.Count - 1)];
+                theMap.PlaceMonster(randomNum.Next(choosenRoom.originX, choosenRoom.originX + choosenRoom.width),
+                    randomNum.Next(choosenRoom.originY, choosenRoom.originY + choosenRoom.width));
+            }
             //Plant the gateway
             theMap.rooms.Last<Room>().SetRoomTile(theMap,2, 2, 2);
         }

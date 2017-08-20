@@ -13,23 +13,27 @@ namespace CavernCrawler
 {
     class Character
     {
-        public Vector2f position;
+        public int xPos;
+        public int yPos;
+        public int graphicsID;
         public bool isMale;
         public float maxHealth;
         public float currentHealth;
 
+
         public Character()
         {
-            position = new Vector2f(3.0f, 3.0f);
+            xPos = 3;
+            yPos = 3;
             isMale = true;
             maxHealth = 100.0f;
             currentHealth = maxHealth;
         }
 
-        public void Move(float xPos, float yPos)
+        public void Move(int xPosition, int yPosition)
         {
-            position.X = xPos;
-            position.Y = yPos;
+            xPos = xPosition;
+            yPos = yPosition;
         }
     }
 }

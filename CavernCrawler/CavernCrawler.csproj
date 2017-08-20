@@ -93,6 +93,7 @@
     <Compile Include="Src\Camera.cs" />
     <Compile Include="Src\Character.cs" />
     <Compile Include="Src\Game.cs" />
+    <Compile Include="Src\GlobalResource.cs" />
     <Compile Include="Src\GraphicsManager.cs" />
     <Compile Include="Src\InputManager.cs" />
     <Compile Include="Src\Item.cs" />
@@ -2875,8 +2876,12 @@
     <Content Include="Content\Textures\Tx_Misc\unseen_weapon.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Textures\Tx_Monster\acid_blob.png" />
-    <Content Include="Content\Textures\Tx_Monster\angel.png" />
+    <Content Include="Content\Textures\Tx_Monster\acid_blob.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\angel.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\Textures\Tx_Monster\animals\alligator.png" />
     <Content Include="Content\Textures\Tx_Monster\animals\alligator_baby.png" />
     <Content Include="Content\Textures\Tx_Monster\animals\alligator_snapping_turtle.png" />
@@ -2983,36 +2988,96 @@
     <Content Include="Content\Textures\Tx_Monster\animals\worm.png" />
     <Content Include="Content\Textures\Tx_Monster\animals\yak.png" />
     <Content Include="Content\Textures\Tx_Monster\animals\yellow_wasp.png" />
-    <Content Include="Content\Textures\Tx_Monster\azure_jelly.png" />
-    <Content Include="Content\Textures\Tx_Monster\big_kobold.png" />
-    <Content Include="Content\Textures\Tx_Monster\boggart.png" />
-    <Content Include="Content\Textures\Tx_Monster\brown_ooze.png" />
-    <Content Include="Content\Textures\Tx_Monster\centaur-melee.png" />
-    <Content Include="Content\Textures\Tx_Monster\centaur.png" />
-    <Content Include="Content\Textures\Tx_Monster\centaur_warrior-melee.png" />
-    <Content Include="Content\Textures\Tx_Monster\centaur_warrior.png" />
-    <Content Include="Content\Textures\Tx_Monster\cyclops.png" />
-    <Content Include="Content\Textures\Tx_Monster\daeva.png" />
-    <Content Include="Content\Textures\Tx_Monster\death_drake.png" />
-    <Content Include="Content\Textures\Tx_Monster\deep_elf_annihilator.png" />
-    <Content Include="Content\Textures\Tx_Monster\deep_elf_blademaster.png" />
-    <Content Include="Content\Textures\Tx_Monster\deep_elf_conjurer.png" />
-    <Content Include="Content\Textures\Tx_Monster\deep_elf_death_mage.png" />
-    <Content Include="Content\Textures\Tx_Monster\deep_elf_demonologist.png" />
-    <Content Include="Content\Textures\Tx_Monster\deep_elf_fighter.png" />
-    <Content Include="Content\Textures\Tx_Monster\deep_elf_high_priest.png" />
-    <Content Include="Content\Textures\Tx_Monster\deep_elf_knight.png" />
-    <Content Include="Content\Textures\Tx_Monster\deep_elf_mage.png" />
-    <Content Include="Content\Textures\Tx_Monster\deep_elf_master_archer.png" />
-    <Content Include="Content\Textures\Tx_Monster\deep_elf_priest.png" />
-    <Content Include="Content\Textures\Tx_Monster\deep_elf_soldier.png" />
-    <Content Include="Content\Textures\Tx_Monster\deep_elf_sorcerer.png" />
-    <Content Include="Content\Textures\Tx_Monster\deep_elf_summoner.png" />
-    <Content Include="Content\Textures\Tx_Monster\deep_troll.png" />
-    <Content Include="Content\Textures\Tx_Monster\deformed_elf.png" />
-    <Content Include="Content\Textures\Tx_Monster\deformed_human.png" />
-    <Content Include="Content\Textures\Tx_Monster\deformed_orc.png" />
-    <Content Include="Content\Textures\Tx_Monster\demonspawn.png" />
+    <Content Include="Content\Textures\Tx_Monster\azure_jelly.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\big_kobold.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\boggart.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\brown_ooze.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\centaur-melee.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\centaur.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\centaur_warrior-melee.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\centaur_warrior.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\cyclops.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\daeva.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\death_drake.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\deep_elf_annihilator.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\deep_elf_blademaster.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\deep_elf_conjurer.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\deep_elf_death_mage.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\deep_elf_demonologist.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\deep_elf_fighter.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\deep_elf_high_priest.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\deep_elf_knight.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\deep_elf_mage.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\deep_elf_master_archer.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\deep_elf_priest.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\deep_elf_soldier.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\deep_elf_sorcerer.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\deep_elf_summoner.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\deep_troll.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\deformed_elf.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\deformed_human.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\deformed_orc.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\demonspawn.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\Textures\Tx_Monster\demons\abomination_large.png" />
     <Content Include="Content\Textures\Tx_Monster\demons\abomination_large1.png" />
     <Content Include="Content\Textures\Tx_Monster\demons\abomination_large2.png" />
@@ -3093,82 +3158,210 @@
     <Content Include="Content\Textures\Tx_Monster\draco\draco-job-scorcher.png" />
     <Content Include="Content\Textures\Tx_Monster\draco\draco-job-shifter.png" />
     <Content Include="Content\Textures\Tx_Monster\draco\draco-job-zealot.png" />
-    <Content Include="Content\Textures\Tx_Monster\dragon.png" />
-    <Content Include="Content\Textures\Tx_Monster\dwarf.png" />
-    <Content Include="Content\Textures\Tx_Monster\elf.png" />
-    <Content Include="Content\Textures\Tx_Monster\ettin.png" />
-    <Content Include="Content\Textures\Tx_Monster\eye_of_devastation.png" />
-    <Content Include="Content\Textures\Tx_Monster\eye_of_draining.png" />
-    <Content Include="Content\Textures\Tx_Monster\fire_drake.png" />
-    <Content Include="Content\Textures\Tx_Monster\fire_giant.png" />
-    <Content Include="Content\Textures\Tx_Monster\frost_giant.png" />
+    <Content Include="Content\Textures\Tx_Monster\dragon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\dwarf.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\elf.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\ettin.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\eye_of_devastation.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\eye_of_draining.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\fire_drake.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\fire_giant.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\frost_giant.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\Textures\Tx_Monster\fungi_plants\giant_spore.png" />
     <Content Include="Content\Textures\Tx_Monster\fungi_plants\hyperactive_ballistomycete.png" />
     <Content Include="Content\Textures\Tx_Monster\fungi_plants\oklob_plant.png" />
     <Content Include="Content\Textures\Tx_Monster\fungi_plants\plant.png" />
     <Content Include="Content\Textures\Tx_Monster\fungi_plants\plant_crypt.png" />
     <Content Include="Content\Textures\Tx_Monster\fungi_plants\wandering_mushroom.png" />
-    <Content Include="Content\Textures\Tx_Monster\giant_amoeba.png" />
-    <Content Include="Content\Textures\Tx_Monster\giant_eyeball.png" />
-    <Content Include="Content\Textures\Tx_Monster\giant_orange_brain.png" />
-    <Content Include="Content\Textures\Tx_Monster\glowing_shapeshifter.png" />
-    <Content Include="Content\Textures\Tx_Monster\gnoll.png" />
-    <Content Include="Content\Textures\Tx_Monster\goblin.png" />
-    <Content Include="Content\Textures\Tx_Monster\golden_dragon.png" />
-    <Content Include="Content\Textures\Tx_Monster\golden_eye.png" />
-    <Content Include="Content\Textures\Tx_Monster\greater_naga.png" />
-    <Content Include="Content\Textures\Tx_Monster\great_orb_of_eyes.png" />
-    <Content Include="Content\Textures\Tx_Monster\griffon.png" />
-    <Content Include="Content\Textures\Tx_Monster\guardian_serpent.png" />
-    <Content Include="Content\Textures\Tx_Monster\halfling.png" />
-    <Content Include="Content\Textures\Tx_Monster\harpy.png" />
-    <Content Include="Content\Textures\Tx_Monster\hell_knight.png" />
-    <Content Include="Content\Textures\Tx_Monster\hill_giant.png" />
-    <Content Include="Content\Textures\Tx_Monster\hippogriff.png" />
-    <Content Include="Content\Textures\Tx_Monster\hobgoblin.png" />
+    <Content Include="Content\Textures\Tx_Monster\giant_amoeba.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\giant_eyeball.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\giant_orange_brain.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\glowing_shapeshifter.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\gnoll.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\goblin.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\golden_dragon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\golden_eye.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\greater_naga.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\great_orb_of_eyes.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\griffon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\guardian_serpent.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\halfling.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\harpy.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\hell_knight.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\hill_giant.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\hippogriff.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\hobgoblin.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\Textures\Tx_Monster\holy\apis.png" />
     <Content Include="Content\Textures\Tx_Monster\holy\cherub.png" />
     <Content Include="Content\Textures\Tx_Monster\holy\eastern_dragon.png" />
     <Content Include="Content\Textures\Tx_Monster\holy\ophan.png" />
     <Content Include="Content\Textures\Tx_Monster\holy\paladin.png" />
     <Content Include="Content\Textures\Tx_Monster\holy\shedu.png" />
-    <Content Include="Content\Textures\Tx_Monster\human.png" />
-    <Content Include="Content\Textures\Tx_Monster\human_monk_ghost.png" />
-    <Content Include="Content\Textures\Tx_Monster\human_slave.png" />
-    <Content Include="Content\Textures\Tx_Monster\hydra1.png" />
-    <Content Include="Content\Textures\Tx_Monster\hydra2.png" />
-    <Content Include="Content\Textures\Tx_Monster\hydra3.png" />
-    <Content Include="Content\Textures\Tx_Monster\hydra4.png" />
-    <Content Include="Content\Textures\Tx_Monster\hydra5.png" />
-    <Content Include="Content\Textures\Tx_Monster\ice_beast.png" />
-    <Content Include="Content\Textures\Tx_Monster\ice_dragon.png" />
-    <Content Include="Content\Textures\Tx_Monster\iron_dragon.png" />
-    <Content Include="Content\Textures\Tx_Monster\iron_troll.png" />
-    <Content Include="Content\Textures\Tx_Monster\iron_troll_monk_ghost.png" />
-    <Content Include="Content\Textures\Tx_Monster\jelly.png" />
-    <Content Include="Content\Textures\Tx_Monster\killer_klown.png" />
-    <Content Include="Content\Textures\Tx_Monster\kobold.png" />
-    <Content Include="Content\Textures\Tx_Monster\kobold_demonologist.png" />
-    <Content Include="Content\Textures\Tx_Monster\lindwurm.png" />
-    <Content Include="Content\Textures\Tx_Monster\manticore.png" />
-    <Content Include="Content\Textures\Tx_Monster\merfolk_aquamancer.png" />
-    <Content Include="Content\Textures\Tx_Monster\merfolk_aquamancer_water.png" />
-    <Content Include="Content\Textures\Tx_Monster\merfolk_fighter.png" />
-    <Content Include="Content\Textures\Tx_Monster\merfolk_fighter_water.png" />
-    <Content Include="Content\Textures\Tx_Monster\merfolk_impaler.png" />
-    <Content Include="Content\Textures\Tx_Monster\merfolk_impaler_water.png" />
-    <Content Include="Content\Textures\Tx_Monster\merfolk_javelineer.png" />
-    <Content Include="Content\Textures\Tx_Monster\merfolk_javelineer_water.png" />
-    <Content Include="Content\Textures\Tx_Monster\merfolk_plain.png" />
-    <Content Include="Content\Textures\Tx_Monster\merfolk_plain_water.png" />
-    <Content Include="Content\Textures\Tx_Monster\mermaid.png" />
-    <Content Include="Content\Textures\Tx_Monster\mermaid_water.png" />
-    <Content Include="Content\Textures\Tx_Monster\minotaur.png" />
-    <Content Include="Content\Textures\Tx_Monster\mottled_dragon.png" />
-    <Content Include="Content\Textures\Tx_Monster\naga.png" />
-    <Content Include="Content\Textures\Tx_Monster\naga_mage.png" />
-    <Content Include="Content\Textures\Tx_Monster\naga_warrior.png" />
-    <Content Include="Content\Textures\Tx_Monster\necromancer.png" />
+    <Content Include="Content\Textures\Tx_Monster\human.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\human_monk_ghost.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\human_slave.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\hydra1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\hydra2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\hydra3.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\hydra4.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\hydra5.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\ice_beast.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\ice_dragon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\iron_dragon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\iron_troll.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\iron_troll_monk_ghost.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\jelly.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\killer_klown.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\kobold.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\kobold_demonologist.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\lindwurm.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\manticore.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\merfolk_aquamancer.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\merfolk_aquamancer_water.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\merfolk_fighter.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\merfolk_fighter_water.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\merfolk_impaler.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\merfolk_impaler_water.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\merfolk_javelineer.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\merfolk_javelineer_water.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\merfolk_plain.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\merfolk_plain_water.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\mermaid.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\mermaid_water.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\minotaur.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\mottled_dragon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\naga.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\naga_mage.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\naga_warrior.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\necromancer.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\Textures\Tx_Monster\nonliving\air_elemental.png" />
     <Content Include="Content\Textures\Tx_Monster\nonliving\ball_lightning.png" />
     <Content Include="Content\Textures\Tx_Monster\nonliving\clay_golem.png" />
@@ -3195,18 +3388,42 @@
     <Content Include="Content\Textures\Tx_Monster\nonliving\vapour.png" />
     <Content Include="Content\Textures\Tx_Monster\nonliving\water_elemental.png" />
     <Content Include="Content\Textures\Tx_Monster\nonliving\wood_golem.png" />
-    <Content Include="Content\Textures\Tx_Monster\ogre.png" />
-    <Content Include="Content\Textures\Tx_Monster\ogre_mage.png" />
-    <Content Include="Content\Textures\Tx_Monster\ooze.png" />
-    <Content Include="Content\Textures\Tx_Monster\orb_guardian.png" />
-    <Content Include="Content\Textures\Tx_Monster\orc.png" />
-    <Content Include="Content\Textures\Tx_Monster\orc_high_priest.png" />
-    <Content Include="Content\Textures\Tx_Monster\orc_knight.png" />
-    <Content Include="Content\Textures\Tx_Monster\orc_priest.png" />
-    <Content Include="Content\Textures\Tx_Monster\orc_sorcerer.png" />
-    <Content Include="Content\Textures\Tx_Monster\orc_warlord.png" />
-    <Content Include="Content\Textures\Tx_Monster\orc_warrior.png" />
-    <Content Include="Content\Textures\Tx_Monster\orc_wizard.png" />
+    <Content Include="Content\Textures\Tx_Monster\ogre.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\ogre_mage.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\ooze.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\orb_guardian.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\orc.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\orc_high_priest.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\orc_knight.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\orc_priest.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\orc_sorcerer.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\orc_warlord.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\orc_warrior.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\orc_wizard.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\Textures\Tx_Monster\panlord\demon_body_fat.png" />
     <Content Include="Content\Textures\Tx_Monster\panlord\demon_body_fatter.png" />
     <Content Include="Content\Textures\Tx_Monster\panlord\demon_body_normal.png" />
@@ -3234,16 +3451,36 @@
     <Content Include="Content\Textures\Tx_Monster\panlord\demon_wings_medium.png" />
     <Content Include="Content\Textures\Tx_Monster\panlord\demon_wings_red.png" />
     <Content Include="Content\Textures\Tx_Monster\panlord\pandemonium_demon.png" />
-    <Content Include="Content\Textures\Tx_Monster\pulsating_lump.png" />
-    <Content Include="Content\Textures\Tx_Monster\quicksilver_dragon.png" />
-    <Content Include="Content\Textures\Tx_Monster\rock_troll.png" />
-    <Content Include="Content\Textures\Tx_Monster\rock_troll_monk_ghost.png" />
-    <Content Include="Content\Textures\Tx_Monster\shadow_dragon.png" />
-    <Content Include="Content\Textures\Tx_Monster\shapeshifter.png" />
-    <Content Include="Content\Textures\Tx_Monster\shining_eye.png" />
-    <Content Include="Content\Textures\Tx_Monster\siren.png" />
-    <Content Include="Content\Textures\Tx_Monster\siren_water.png" />
-    <Content Include="Content\Textures\Tx_Monster\sphinx.png" />
+    <Content Include="Content\Textures\Tx_Monster\pulsating_lump.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\quicksilver_dragon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\rock_troll.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\rock_troll_monk_ghost.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\shadow_dragon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\shapeshifter.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\shining_eye.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\siren.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\siren_water.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\sphinx.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\Textures\Tx_Monster\spriggan\spriggan.png" />
     <Content Include="Content\Textures\Tx_Monster\spriggan\spriggan_defender.png" />
     <Content Include="Content\Textures\Tx_Monster\spriggan\spriggan_druid.png" />
@@ -3274,14 +3511,30 @@
     <Content Include="Content\Textures\Tx_Monster\statues\statue_base.png" />
     <Content Include="Content\Textures\Tx_Monster\statues\training_dummy.png" />
     <Content Include="Content\Textures\Tx_Monster\statues\wucad_mu_statue.png" />
-    <Content Include="Content\Textures\Tx_Monster\steam_dragon.png" />
-    <Content Include="Content\Textures\Tx_Monster\stone_giant.png" />
-    <Content Include="Content\Textures\Tx_Monster\storm_dragon.png" />
-    <Content Include="Content\Textures\Tx_Monster\swamp_dragon.png" />
-    <Content Include="Content\Textures\Tx_Monster\swamp_drake.png" />
-    <Content Include="Content\Textures\Tx_Monster\titan.png" />
-    <Content Include="Content\Textures\Tx_Monster\troll.png" />
-    <Content Include="Content\Textures\Tx_Monster\two_headed_ogre.png" />
+    <Content Include="Content\Textures\Tx_Monster\steam_dragon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\stone_giant.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\storm_dragon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\swamp_dragon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\swamp_drake.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\titan.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\troll.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\two_headed_ogre.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\Textures\Tx_Monster\undead\ancient_lich.png" />
     <Content Include="Content\Textures\Tx_Monster\undead\bone_dragon.png" />
     <Content Include="Content\Textures\Tx_Monster\undead\curse_skull.png" />
@@ -3416,13 +3669,27 @@
     <Content Include="Content\Textures\Tx_Monster\unique\urug.png" />
     <Content Include="Content\Textures\Tx_Monster\unique\wiglaf.png" />
     <Content Include="Content\Textures\Tx_Monster\unique\xtahua.png" />
-    <Content Include="Content\Textures\Tx_Monster\vault_guard.png" />
-    <Content Include="Content\Textures\Tx_Monster\wizard.png" />
-    <Content Include="Content\Textures\Tx_Monster\wyvern.png" />
-    <Content Include="Content\Textures\Tx_Monster\yaktaur-melee.png" />
-    <Content Include="Content\Textures\Tx_Monster\yaktaur.png" />
-    <Content Include="Content\Textures\Tx_Monster\yaktaur_captain-melee.png" />
-    <Content Include="Content\Textures\Tx_Monster\yaktaur_captain.png" />
+    <Content Include="Content\Textures\Tx_Monster\vault_guard.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\wizard.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\wyvern.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\yaktaur-melee.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\yaktaur.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\yaktaur_captain-melee.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Monster\yaktaur_captain.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\Textures\Tx_Player\barding\centaur_barding_blue.png" />
     <Content Include="Content\Textures\Tx_Player\barding\centaur_barding_magenta.png" />
     <Content Include="Content\Textures\Tx_Player\barding\centaur_barding_metal.png" />

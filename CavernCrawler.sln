@@ -1,26 +1,44 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26403.7
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CavernCrawler", "CavernCrawler\CavernCrawler.csproj", "{93171AA0-B272-4271-A095-0C4825493F99}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{43DBEBD9-10FD-4AD4-A087-520A152B2A04}"
+	ProjectSection(SolutionItems) = preProject
+		CavernCrawler\External\csfml-audio-2.dll = CavernCrawler\External\csfml-audio-2.dll
+		CavernCrawler\External\csfml-graphics-2.dll = CavernCrawler\External\csfml-graphics-2.dll
+		CavernCrawler\External\csfml-system-2.dll = CavernCrawler\External\csfml-system-2.dll
+		CavernCrawler\External\csfml-window-2.dll = CavernCrawler\External\csfml-window-2.dll
+		CavernCrawler\External\libsndfile-1.dll = CavernCrawler\External\libsndfile-1.dll
+		CavernCrawler\External\openal32.dll = CavernCrawler\External\openal32.dll
+		CavernCrawler\External\OpenTK.Compatibility.dll = CavernCrawler\External\OpenTK.Compatibility.dll
+		CavernCrawler\External\OpenTK.dll = CavernCrawler\External\OpenTK.dll
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
 		Release|Any CPU = Release|Any CPU
 		Release|x64 = Release|x64
+		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{93171AA0-B272-4271-A095-0C4825493F99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{93171AA0-B272-4271-A095-0C4825493F99}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{93171AA0-B272-4271-A095-0C4825493F99}.Debug|x64.ActiveCfg = Debug|x64
 		{93171AA0-B272-4271-A095-0C4825493F99}.Debug|x64.Build.0 = Debug|x64
+		{93171AA0-B272-4271-A095-0C4825493F99}.Debug|x86.ActiveCfg = Debug|x86
+		{93171AA0-B272-4271-A095-0C4825493F99}.Debug|x86.Build.0 = Debug|x86
 		{93171AA0-B272-4271-A095-0C4825493F99}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{93171AA0-B272-4271-A095-0C4825493F99}.Release|Any CPU.Build.0 = Release|Any CPU
 		{93171AA0-B272-4271-A095-0C4825493F99}.Release|x64.ActiveCfg = Release|x64
 		{93171AA0-B272-4271-A095-0C4825493F99}.Release|x64.Build.0 = Release|x64
+		{93171AA0-B272-4271-A095-0C4825493F99}.Release|x86.ActiveCfg = Release|x86
+		{93171AA0-B272-4271-A095-0C4825493F99}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

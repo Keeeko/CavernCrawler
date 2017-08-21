@@ -13,7 +13,6 @@ namespace CavernCrawler
 {
     class Map
     {
-
         public struct MapCoordinates
         {
             public int x;
@@ -72,13 +71,14 @@ namespace CavernCrawler
             PlaceCharacters();
         }
 
+        //Hardcoded for the time being, will clean up later
         public void PlaceCharacters()
         {
             player = new Character();
             player.xPos = rooms[0].originX;
             player.yPos = rooms[0].originY;
             player.graphicsID = 99;
-            characterMap.Add(new MapCoordinates(player.xPos, player.yPos), player);
+           characterMap.Add(new MapCoordinates(player.xPos, player.yPos), player);
 
             PlaceMonster(rooms[0].originX + 2, rooms[0].originY + 2);
         }

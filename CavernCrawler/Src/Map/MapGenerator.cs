@@ -84,7 +84,7 @@ namespace CavernCrawler
             {
                 Room choosenRoom = theMap.rooms[randomNum.Next(0, theMap.rooms.Count - 1)];
                 theMap.PlaceMonster(randomNum.Next(choosenRoom.originX, choosenRoom.originX + choosenRoom.width),
-                    randomNum.Next(choosenRoom.originY, choosenRoom.originY + choosenRoom.width));
+                    randomNum.Next(choosenRoom.originY, choosenRoom.originY + choosenRoom.height));
             }
             //Plant the gateway
             theMap.rooms.Last<Room>().SetRoomTile(theMap,2, 2, 2);

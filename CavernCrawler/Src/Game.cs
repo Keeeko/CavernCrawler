@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using SFML;
 using SFML.System;
 using SFML.Graphics;
@@ -22,89 +20,69 @@ namespace CavernCrawler
 
     class Game
     {
-
-        RenderWindow window;
-        View main_view;
         Map theMap;
-
-        float windowMoveSpeed;
-        float zoomSpeed;
-        float currentZoomFactor;
+        Camera mainCamera;
 
         public void Run()
         {
             Init();
 
-            window.SetActive();
-            while (window.IsOpen)
+            mainCamera.GetWindow().SetActive();
+
+            while (mainCamera.GetWindow().IsOpen)
             {
-                window.Clear();
-                window.DispatchEvents();
                 Update();
                 Draw();
-
             }
         }
 
         public void Init()
         {
-            window = new RenderWindow(new VideoMode(1280, 960), "Cavern Crawler");
-            main_view = new View(new Vector2f(200, 200), new Vector2f(1280, 960));
-
-            windowMoveSpeed = 20.0f;
-            currentZoomFactor = 0.75f;
-            zoomSpeed = 1.0f;
-
-            main_view.Zoom(currentZoomFactor);
-            window.SetView(main_view);
             theMap = new Map(70, 50);
-
-
+            mainCamera = new Camera(1280, 960, 12.5f, 0.75f, 0.75f);
         }
 
         public void Update()
         {
+            mainCamera.Update();
             Input();
         }
 
         public void Draw()
         {
-            theMap.DrawMap(window);
-            window.SetView(main_view);
-            window.Display();
+            theMap.DrawMap(mainCamera.GetWindow());
+            mainCamera.Display();
         }
 
         public void Input()
         {
             if (Keyboard.IsKeyPressed(Keyboard.Key.D))
             {
-                main_view.Move(new Vector2f(windowMoveSpeed, 0.0f));
+                mainCamera.MoveCamera(1, 0);
             }
             else if (Keyboard.IsKeyPressed(Keyboard.Key.A))
             {
-                main_view.Move(new Vector2f(-windowMoveSpeed, 0.0f));
+                mainCamera.MoveCamera(-1, 0);
             }
             else if (Keyboard.IsKeyPressed(Keyboard.Key.S))
             {
-                main_view.Move(new Vector2f(0.0f, windowMoveSpeed));
+                mainCamera.MoveCamera(0, 1);
             }
             else if (Keyboard.IsKeyPressed(Keyboard.Key.W))
             {
-                main_view.Move(new Vector2f(0.0f, -windowMoveSpeed));
+                mainCamera.MoveCamera(0, -1);
             }
 
             if (Keyboard.IsKeyPressed(Keyboard.Key.Add))
             {
-                float newX = main_view.Size.X - zoomSpeed;
-                float newY = newX / 1.333333333333333f; //4:3 aspect ratio
-                main_view.Size = new Vector2f(newX, newY);
+                //Zoom in
+                mainCamera.ZoomCamera(1);
             }
 
             if (Keyboard.IsKeyPressed(Keyboard.Key.Subtract))
             {
-                float newX = main_view.Size.X + zoomSpeed;
-                float newY = newX / 1.333333333333333f; //4:3 aspect ratio
-                main_view.Size = new Vector2f(newX, newY);
+                //Zoom out
+                mainCamera.ZoomCamera(-1);
             }
 
         }

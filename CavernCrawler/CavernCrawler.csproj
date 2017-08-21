@@ -67,18 +67,36 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <PlatformTarget>x86</PlatformTarget>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <PlatformTarget>x86</PlatformTarget>
+    <OutputPath>bin\x86\Release\</OutputPath>
+  </PropertyGroup>
   <ItemGroup>
-    <Reference Include="sfmlnet-audio-2">
-      <HintPath>..\..\..\..\Libraries\SNMLNet\SFML.Net-2.2\lib\sfmlnet-audio-2.dll</HintPath>
+    <Reference Include="OpenTK">
+      <HintPath>.\OpenTK.dll</HintPath>
     </Reference>
-    <Reference Include="sfmlnet-graphics-2">
-      <HintPath>..\..\..\..\Libraries\SNMLNet\SFML.Net-2.2\lib\sfmlnet-graphics-2.dll</HintPath>
+    <Reference Include="OpenTK.Compatibility">
+      <HintPath>.\OpenTK.Compatibility.dll</HintPath>
     </Reference>
-    <Reference Include="sfmlnet-system-2">
-      <HintPath>..\..\..\..\Libraries\SNMLNet\SFML.Net-2.2\lib\sfmlnet-system-2.dll</HintPath>
+    <Reference Include="sfmlnet-audio-2, Version=2.2.0.0, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Library\sfmlnet-audio-2.dll</HintPath>
     </Reference>
-    <Reference Include="sfmlnet-window-2">
-      <HintPath>..\..\..\..\Libraries\SNMLNet\SFML.Net-2.2\lib\sfmlnet-window-2.dll</HintPath>
+    <Reference Include="sfmlnet-graphics-2, Version=2.2.0.0, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Library\sfmlnet-graphics-2.dll</HintPath>
+    </Reference>
+    <Reference Include="sfmlnet-system-2, Version=2.2.0.0, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Library\sfmlnet-system-2.dll</HintPath>
+    </Reference>
+    <Reference Include="sfmlnet-window-2, Version=2.2.0.0, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Library\sfmlnet-window-2.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -90,15 +108,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Src\Camera.cs" />
-    <Compile Include="Src\Character.cs" />
+    <Compile Include="Src\Camera\Camera.cs" />
+    <Compile Include="Src\World\Character.cs" />
     <Compile Include="Src\Game.cs" />
     <Compile Include="Src\GlobalResource.cs" />
-    <Compile Include="Src\GraphicsManager.cs" />
     <Compile Include="Src\InputManager.cs" />
-    <Compile Include="Src\Item.cs" />
-    <Compile Include="Src\Map.cs" />
-    <Compile Include="Src\MapGenerator.cs" />
+    <Compile Include="Src\World\Item.cs" />
+    <Compile Include="Src\Map\Map.cs" />
+    <Compile Include="Src\Map\MapGenerator.cs" />
     <Compile Include="Src\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
@@ -106,10 +123,12 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="Src\Room.cs" />
+    <Compile Include="Src\Map\Room.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="bin\x64\Debug\CavernCrawler.exe.config" />
     <None Include="bin\x64\Debug\CavernCrawler.vshost.exe.config" />
     <None Include="Properties\Settings.settings">
@@ -5005,6 +5024,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin\x64\Debug\Content\Textures\" />
+    <Folder Include="Src\GUI\" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">

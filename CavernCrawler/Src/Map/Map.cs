@@ -40,7 +40,7 @@ namespace CavernCrawler
         Dictionary<int, Texture> mapTileGraphics;
         public List<Room> rooms;
 
-        Character player;
+        public Character player;
 
         public Map(int sizeX, int sizeY)
         {
@@ -93,7 +93,7 @@ namespace CavernCrawler
             {
                 Character monster = new Character();
                 monster.graphicsID = 91;
-                monster.Move(xPos, yPos);
+                monster.MoveTo(xPos, yPos);
                 characterMap.Add(new MapCoordinates(xPos, yPos), monster);
                 
 

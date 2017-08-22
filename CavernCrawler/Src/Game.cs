@@ -22,9 +22,14 @@ namespace CavernCrawler
     {
         Map theMap;
         Camera mainCamera;
+        InputManager inputManager;
+
+        Time deltaTime;
+        Clock deltaClock;
 
         public void Run()
         {
+            
             Init();
 
             mainCamera.GetWindow().SetActive();
@@ -40,51 +45,23 @@ namespace CavernCrawler
         {
             theMap = new Map(70, 50);
             mainCamera = new Camera(1280, 960, 12.5f, 0.75f, 0.75f);
+            deltaClock = new Clock();
+            inputManager = new InputManager();
+
+            mainCamera.SetCameraPosition(theMap.player.xPos, theMap.player.yPos);
         }
 
         public void Update()
         {
+            deltaTime = deltaClock.Restart();
             mainCamera.Update();
-            Input();
+            inputManager.Update(theMap.player, mainCamera);
         }
 
         public void Draw()
         {
             theMap.DrawMap(mainCamera.GetWindow());
             mainCamera.Display();
-        }
-
-        public void Input()
-        {
-            if (Keyboard.IsKeyPressed(Keyboard.Key.D))
-            {
-                mainCamera.MoveCamera(1, 0);
-            }
-            else if (Keyboard.IsKeyPressed(Keyboard.Key.A))
-            {
-                mainCamera.MoveCamera(-1, 0);
-            }
-            else if (Keyboard.IsKeyPressed(Keyboard.Key.S))
-            {
-                mainCamera.MoveCamera(0, 1);
-            }
-            else if (Keyboard.IsKeyPressed(Keyboard.Key.W))
-            {
-                mainCamera.MoveCamera(0, -1);
-            }
-
-            if (Keyboard.IsKeyPressed(Keyboard.Key.Add))
-            {
-                //Zoom in
-                mainCamera.ZoomCamera(1);
-            }
-
-            if (Keyboard.IsKeyPressed(Keyboard.Key.Subtract))
-            {
-                //Zoom out
-                mainCamera.ZoomCamera(-1);
-            }
-
         }
     }
 }

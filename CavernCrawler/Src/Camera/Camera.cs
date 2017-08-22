@@ -53,7 +53,7 @@ namespace CavernCrawler
             window.SetView(mainview);
             window.Display();
         }
-        
+
         public RenderWindow GetWindow()
         {
             return window;
@@ -76,5 +76,11 @@ namespace CavernCrawler
             mainview.Move(new Vector2f(windowMoveSpeed * Math.Sign(xDirection), windowMoveSpeed * Math.Sign(yDirection)));
 
         }
+
+        public void SetCameraPosition(int xPos, int yPos)
+        {
+            mainview.Center = new Vector2f(xPos * 32.0f, yPos * 32.0f);
+        }
+
     }
 }

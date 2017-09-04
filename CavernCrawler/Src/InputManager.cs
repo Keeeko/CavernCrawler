@@ -14,22 +14,36 @@ namespace CavernCrawler
 {
     class InputManager
     {
+        bool upKeyPressed = false;
+        bool rightKeyPressed = false;
+        bool leftKeyPressed = false;
+        bool downKeyPressed = false;
+
+        bool upKeyPreviousFrameState;
+        bool leftKeyPreviousFrameState;
+        bool rightKeyPreviousFrameState;
+        bool downKeyPreviousFrameState;
+
+
         public void Update(Character thePlayer, Camera mainCamera)
         {
+            PollKeyboard();
+
             //Player controls
-            if (Keyboard.IsKeyPressed(Keyboard.Key.D))
+            if (rightKeyPressed)
             {
                 thePlayer.Move(1, 0);
             }
-            else if (Keyboard.IsKeyPressed(Keyboard.Key.A))
+
+            if (leftKeyPressed)
             {
                 thePlayer.Move(-1, 0);
             }
-            else if (Keyboard.IsKeyPressed(Keyboard.Key.S))
+            else if (downKeyPressed)
             {
                 thePlayer.Move(0, 1);
             }
-            else if (Keyboard.IsKeyPressed(Keyboard.Key.W))
+            else if (upKeyPressed)
             {
                 thePlayer.Move(0, -1);
             }
@@ -64,6 +78,50 @@ namespace CavernCrawler
                 mainCamera.ZoomCamera(-1);
             }
 
+            upKeyPreviousFrameState = Keyboard.IsKeyPressed(Keyboard.Key.W);
+            rightKeyPreviousFrameState = Keyboard.IsKeyPressed(Keyboard.Key.D);
+            leftKeyPreviousFrameState = Keyboard.IsKeyPressed(Keyboard.Key.A);
+            downKeyPreviousFrameState = Keyboard.IsKeyPressed(Keyboard.Key.S);
+        }
+
+        void PollKeyboard()
+        {
+            
+            if(upKeyPreviousFrameState == false && Keyboard.IsKeyPressed(Keyboard.Key.W))
+            {
+                upKeyPressed = true;
+            }
+            else
+            {
+                upKeyPressed = false;
+            }
+
+            if (leftKeyPreviousFrameState == false && Keyboard.IsKeyPressed(Keyboard.Key.A))
+            {
+                leftKeyPressed = true;
+            }
+            else
+            {
+                leftKeyPressed = false;
+            }
+
+            if (rightKeyPreviousFrameState == false && Keyboard.IsKeyPressed(Keyboard.Key.D))
+            {
+                rightKeyPressed = true;
+            }
+            else
+            {
+                rightKeyPressed = false;
+            }
+
+            if (downKeyPreviousFrameState == false && Keyboard.IsKeyPressed(Keyboard.Key.S))
+            {
+                downKeyPressed = true;
+            }
+            else
+            {
+                downKeyPressed = false;
+            }
         }
     }
 }

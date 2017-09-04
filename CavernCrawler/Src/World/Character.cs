@@ -21,8 +21,9 @@ namespace CavernCrawler
         public float maxHealth;
         public float currentHealth;
 
+        public Map currentMap;
 
-        public Character()
+        public Character(Map mapReference)
         {
             xPos = 3;
             yPos = 3;
@@ -30,18 +31,51 @@ namespace CavernCrawler
             isMale = true;
             maxHealth = 100.0f;
             currentHealth = maxHealth;
+            currentMap = mapReference;
+
+            currentMap.SetCharacterMap(xPos, yPos, this);
+        }
+
+        public Character(Map mapReference, int xPosRef, int yPosRef)
+        {
+            xPos = xPosRef;
+            yPos = yPosRef;
+            maxMoves = 1;
+            isMale = true;
+            maxHealth = 100.0f;
+            currentHealth = maxHealth;
+            currentMap = mapReference;
+
+            currentMap.SetCharacterMap(xPos, yPos, this);
         }
 
         public void Move(int xAmount, int yAmount)
         {
-            xPos += xAmount;
-            yPos += yAmount;
+            if (currentMap.GetCharacterFromMap(xPos + xAmount, yPos + yAmount) == null)
+            {
+                //Delete characters old position in dictionary
+                currentMap.RemoveCharacterFromPosition(xPos, yPos);
+
+                xPos += xAmount;
+                yPos += yAmount;
+
+                //Set character to new position in character dictionary
+                currentMap.SetCharacterMap(xPos, yPos, this);
+            }
+            else
+            {
+                Console.WriteLine("There is an enemy in that tile");
+            }
         }
 
         public void MoveTo(int xPosition, int yPosition)
         {
+            //currentMap.RemoveCharacterFromPosition(xPos, yPos);
+
             xPos = xPosition;
             yPos = yPosition;
+
+            //currentMap.SetCharacterMap(xPos, yPos, this);
         }
     }
 }

@@ -109,6 +109,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Src\Camera\Camera.cs" />
+    <Compile Include="Src\CharacterManager.cs" />
     <Compile Include="Src\World\Character.cs" />
     <Compile Include="Src\Game.cs" />
     <Compile Include="Src\GlobalResource.cs" />

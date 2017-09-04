@@ -29,7 +29,6 @@ namespace CavernCrawler
 
         public void Run()
         {
-            
             Init();
 
             mainCamera.GetWindow().SetActive();
@@ -49,13 +48,14 @@ namespace CavernCrawler
             inputManager = new InputManager();
 
             mainCamera.SetCameraPosition(theMap.player.xPos, theMap.player.yPos);
+            mainCamera.SetCameraTarget(theMap.player);
         }
 
         public void Update()
         {
             deltaTime = deltaClock.Restart();
-            mainCamera.Update();
             inputManager.Update(theMap.player, mainCamera);
+            mainCamera.Update();
         }
 
         public void Draw()

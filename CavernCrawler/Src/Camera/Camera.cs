@@ -21,6 +21,8 @@ namespace CavernCrawler
         private RenderWindow window;
         private View mainview;
 
+        public Character target;
+
         //public float WindowMoveSpeed { get; set; }
         public float ZoomSpeed { get; set; }
         //public RenderWindow Window { get; set; }
@@ -46,6 +48,12 @@ namespace CavernCrawler
         {
             window.Clear();
             window.DispatchEvents();
+
+            if(target != null)
+            {
+                SetCameraPosition(target.xPos, target.yPos);
+            }
+
         }
 
         public void Display()
@@ -82,5 +90,9 @@ namespace CavernCrawler
             mainview.Center = new Vector2f(xPos * 32.0f, yPos * 32.0f);
         }
 
+        public void SetCameraTarget(Character targetChar)
+        {
+            target = targetChar;
+        }
     }
 }

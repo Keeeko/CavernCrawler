@@ -74,11 +74,8 @@ namespace CavernCrawler
         //Hardcoded for the time being, will clean up later
         public void PlaceCharacters()
         {
-            player = new Character();
-            player.xPos = rooms[0].originX;
-            player.yPos = rooms[0].originY;
+            player = new Character(this, rooms[0].originX, rooms[0].originY);
             player.graphicsID = 99;
-           characterMap.Add(new MapCoordinates(player.xPos, player.yPos), player);
 
             PlaceMonster(rooms[0].originX + 2, rooms[0].originY + 2);
         }
@@ -91,12 +88,8 @@ namespace CavernCrawler
             }
             else
             {
-                Character monster = new Character();
+                Character monster = new Character(this, xPos, yPos);
                 monster.graphicsID = 91;
-                monster.MoveTo(xPos, yPos);
-                characterMap.Add(new MapCoordinates(xPos, yPos), monster);
-                
-
             }
         }
 
@@ -157,6 +150,24 @@ namespace CavernCrawler
         public void SetMapTile(int xPos, int yPos, int tileNum)
         {
             backgroundtiles[xPos, yPos] = tileNum;
+        }
+
+        public void RemoveCharacterFromPosition(int xPos, int yPos)
+        {
+            characterMap.Remove(new MapCoordinates(xPos, yPos));
+        }
+
+        public void SetCharacterMap(int xPos, int yPos, Character theCharacter)
+        {
+            characterMap.Add(new MapCoordinates(xPos, yPos), theCharacter);
+        }
+
+        public Character GetCharacterFromMap(int xPos, int yPos)
+        {
+            Character theCharacter;
+            characterMap.TryGetValue(new MapCoordinates(xPos, yPos), out theCharacter);
+            return theCharacter;
+            
         }
 
         /*This will be used to find what types of tiles are surronding a certain spot

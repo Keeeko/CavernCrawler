@@ -20,10 +20,15 @@ namespace CavernCrawler
         public bool isMale;
         public float maxHealth;
         public float currentHealth;
+        public float damage;
+        public float defense;
+        public string name;
 
         public Map currentMap;
 
-        public Character(Map mapReference)
+        CharacterManager characterManager;
+
+        public Character(Map mapReference, CharacterManager characterManagerReference)
         {
             xPos = 3;
             yPos = 3;
@@ -33,25 +38,39 @@ namespace CavernCrawler
             currentHealth = maxHealth;
             currentMap = mapReference;
 
+            characterManager = characterManagerReference;
+            characterManager.AddCharacter(this);
             currentMap.SetCharacterMap(xPos, yPos, this);
         }
 
-        public Character(Map mapReference, int xPosRef, int yPosRef)
+        public Character(Map mapReference, CharacterManager characterManagerReference, int xPosRef, int yPosRef, string nameRef)
         {
             xPos = xPosRef;
             yPos = yPosRef;
             maxMoves = 1;
+            damage = 5;
             isMale = true;
             maxHealth = 100.0f;
             currentHealth = maxHealth;
             currentMap = mapReference;
+            name = nameRef;
 
+            characterManager = characterManagerReference;
+            characterManager.AddCharacter(this);
             currentMap.SetCharacterMap(xPos, yPos, this);
+        }
+
+        public void Update()
+        {
+            if(currentHealth <= 0)
+            {
+                Die();
+            }
         }
 
         public void Move(int xAmount, int yAmount)
         {
-            if (currentMap.GetCharacterFromMap(xPos + xAmount, yPos + yAmount) == null)
+            if (currentMap.GetCharacterFromMap(xPos + xAmount, yPos + yAmount) == null && currentMap.GetMapTile(xPos + xAmount, yPos + yAmount) == 0)
             {
                 //Delete characters old position in dictionary
                 currentMap.RemoveCharacterFromPosition(xPos, yPos);
@@ -62,20 +81,29 @@ namespace CavernCrawler
                 //Set character to new position in character dictionary
                 currentMap.SetCharacterMap(xPos, yPos, this);
             }
-            else
+            else if(currentMap.GetCharacterFromMap(xPos + xAmount, yPos + yAmount) != null)
             {
-                Console.WriteLine("There is an enemy in that tile");
+                Attack(currentMap.GetCharacterFromMap(xPos + xAmount, yPos + yAmount));
             }
+        }
+
+        public void Attack(Character target)
+        {
+            Console.WriteLine(name + " attacks " + target.name + " for " + damage + " damage!");
+            target.currentHealth -= damage;
+            Console.Write(target.name + " has " + target.currentHealth + "health left!\n");
         }
 
         public void MoveTo(int xPosition, int yPosition)
         {
-            //currentMap.RemoveCharacterFromPosition(xPos, yPos);
-
             xPos = xPosition;
             yPos = yPosition;
+        }
 
-            //currentMap.SetCharacterMap(xPos, yPos, this);
+        public void Die()
+        {
+            currentMap.RemoveCharacterFromPosition(xPos, yPos);
+            //characterManager.RemoveCharacter(this);
         }
     }
 }

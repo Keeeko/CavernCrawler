@@ -23,6 +23,7 @@ namespace CavernCrawler
         Map theMap;
         Camera mainCamera;
         InputManager inputManager;
+        CharacterManager characterManager;
 
         Time deltaTime;
         Clock deltaClock;
@@ -42,7 +43,8 @@ namespace CavernCrawler
 
         public void Init()
         {
-            theMap = new Map(70, 50);
+            characterManager = new CharacterManager(theMap);
+            theMap = new Map(70, 50, characterManager);
             mainCamera = new Camera(1280, 960, 12.5f, 0.75f, 0.75f);
             deltaClock = new Clock();
             inputManager = new InputManager();
@@ -55,6 +57,7 @@ namespace CavernCrawler
         {
             deltaTime = deltaClock.Restart();
             inputManager.Update(theMap.player, mainCamera);
+            characterManager.Update();
             mainCamera.Update();
         }
 

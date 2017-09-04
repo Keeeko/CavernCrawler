@@ -42,10 +42,13 @@ namespace CavernCrawler
 
         public Character player;
 
-        public Map(int sizeX, int sizeY)
+        public CharacterManager characterManager;
+
+        public Map(int sizeX, int sizeY, CharacterManager characterManagerRef)
         {
             mapSizeX = sizeX;
             mapSizeY = sizeY;
+            characterManager = characterManagerRef;
 
             backgroundtiles = new int[mapSizeX, mapSizeY];
 
@@ -74,7 +77,7 @@ namespace CavernCrawler
         //Hardcoded for the time being, will clean up later
         public void PlaceCharacters()
         {
-            player = new Character(this, rooms[0].originX, rooms[0].originY);
+            player = new Character(this, characterManager, rooms[0].originX, rooms[0].originY, "Player");
             player.graphicsID = 99;
 
             PlaceMonster(rooms[0].originX + 2, rooms[0].originY + 2);
@@ -88,7 +91,7 @@ namespace CavernCrawler
             }
             else
             {
-                Character monster = new Character(this, xPos, yPos);
+                Character monster = new Character(this, characterManager, xPos, yPos, "Dragon");
                 monster.graphicsID = 91;
             }
         }

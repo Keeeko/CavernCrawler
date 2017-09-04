@@ -9,15 +9,35 @@ using SFML.Graphics;
 using SFML.Window;
 using SFML.Audio;
 
-namespace CavernCrawler.Src
+namespace CavernCrawler
 {
     class CharacterManager
     {
         Map currentMap;
+        List<Character> characters;
 
         public CharacterManager(Map theMap)
         {
             currentMap = theMap;
+            characters = new List<Character>();
+        }
+
+        public void AddCharacter(Character character)
+        {
+            characters.Add(character);
+        }
+
+        public void RemoveCharacter(Character character)
+        {
+            characters.Remove(character);
+        }
+
+        public void Update()
+        {
+            foreach(Character character in characters)
+            {
+                character.Update();
+            }
         }
     }
 }

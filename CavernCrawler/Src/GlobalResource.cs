@@ -23,6 +23,8 @@ namespace CavernCrawler
         const string floorTilesFolder = @"\floor";
         const string waterTilesFolder = @"\water";
 
+        const string guiGraphicsFolder = @"\GUI";
+
         string[] tilePaths { get; set; }
 
         public GlobalResource()

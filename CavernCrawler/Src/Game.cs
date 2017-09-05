@@ -45,7 +45,7 @@ namespace CavernCrawler
         {
             characterManager = new CharacterManager(theMap);
             theMap = new Map(70, 50, characterManager);
-            mainCamera = new Camera(1280, 960, 12.5f, 0.75f, 0.75f);
+            mainCamera = new Camera(1440, 1080, 12.5f, 0.75f, 0.45f);
             deltaClock = new Clock();
             inputManager = new InputManager();
 
@@ -64,7 +64,12 @@ namespace CavernCrawler
         public void Draw()
         {
             theMap.DrawMap(mainCamera.GetWindow());
+
+
+            mainCamera.DrawGUI();
+
             mainCamera.Display();
+
         }
     }
 }

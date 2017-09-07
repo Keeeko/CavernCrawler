@@ -110,6 +110,7 @@
   <ItemGroup>
     <Compile Include="Src\Camera\Camera.cs" />
     <Compile Include="Src\CharacterManager.cs" />
+    <Compile Include="Src\GUI\EventConsole.cs" />
     <Compile Include="Src\World\Character.cs" />
     <Compile Include="Src\Game.cs" />
     <Compile Include="Src\GlobalResource.cs" />
@@ -132,6 +133,9 @@
     </None>
     <None Include="bin\x64\Debug\CavernCrawler.exe.config" />
     <None Include="bin\x64\Debug\CavernCrawler.vshost.exe.config" />
+    <None Include="Content\Fonts\PressStart2P-Regular.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -5031,7 +5035,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin\x64\Debug\Content\Textures\" />
-    <Folder Include="Src\GUI\" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">

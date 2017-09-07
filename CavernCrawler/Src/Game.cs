@@ -63,12 +63,13 @@ namespace CavernCrawler
 
         public void Draw()
         {
+            mainCamera.GetWindow().Clear();
             theMap.DrawMap(mainCamera.GetWindow());
-
 
             mainCamera.DrawGUI();
 
-            mainCamera.Display();
+            //Draw everything to screen
+            mainCamera.GetWindow().Display();
 
         }
     }

@@ -20,10 +20,11 @@ namespace CavernCrawler
 
         private RenderWindow window;
         private View mainview;
-        private View fixedView;
+        private View guiView;
         private View consoleView;
 
         public Character target;
+        public EventConsole eventConsole;
 
         Texture guiBackPanel;
         Texture consoleBackPanel;
@@ -47,23 +48,29 @@ namespace CavernCrawler
 
             mainview = new View(new Vector2f(0.0f, 0.0f), new Vector2f(horizontalResolution, verticalResolution));
             //Set center to be equal to half the GUI graphics dimensions, the full size being the actual dimensions of the image
-            fixedView = new View(new Vector2f(216.0f, 540.0f), new Vector2f(432.0f, verticalResolution));
+            guiView = new View(new Vector2f(216.0f, 540.0f), new Vector2f(432.0f, verticalResolution));
 
             consoleView  = new View(new Vector2f(504.0f, 162.0f), new Vector2f(horizontalResolution * 0.7f, 324.0f));
             mainview.Zoom(currentZoomFactor);
 
             mainview.Viewport = new FloatRect(0.0f, 0.0f, 0.7f, 0.7f);
 
+            eventConsole = new EventConsole(Color.White, 14);
+
 
             guiBackPanel = new Texture(@"Content\Textures\Tx_GUI\panel_background.png");
             consoleBackPanel = new Texture(@"Content\Textures\Tx_GUI\panel_console.png");
+
+            eventConsole.AddTextToConsole("This is a test of the console system, fuck the system!");
+            eventConsole.AddTextToConsole("Dragon attacks your mother for all dat ass!");
+            eventConsole.AddTextToConsole("Player has picked up the sword of a thousand truths!");
+            eventConsole.AddTextToConsole("You hear strange noises coming from beyond the veil!");
 
             window.SetView(mainview);
         }
 
         public void Update()
         {
-            window.Clear();
             window.DispatchEvents();
 
             if(target != null)
@@ -75,8 +82,8 @@ namespace CavernCrawler
 
         public void DrawGUI()
         {
-            fixedView.Viewport = new FloatRect(0.7f, 0.0f, 0.3f, 1f);
-            window.SetView(fixedView);
+            guiView.Viewport = new FloatRect(0.7f, 0.0f, 0.3f, 1f);
+            window.SetView(guiView);
 
             Sprite tempSprite = new Sprite(guiBackPanel);
             tempSprite.Position = new Vector2f(0.0f, 0.0f);
@@ -89,16 +96,11 @@ namespace CavernCrawler
             tempSprite2.Position = new Vector2f(0.0f, 0.0f);
             window.Draw(tempSprite2);
 
+            eventConsole.DrawText(window, consoleView);
 
             window.SetView(mainview);
 
 
-        }
-
-        public void Display()
-        {
-            window.SetView(mainview);
-            window.Display();
         }
 
         public RenderWindow GetWindow()

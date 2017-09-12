@@ -44,11 +44,14 @@ namespace CavernCrawler
 
         public CharacterManager characterManager;
 
-        public Map(int sizeX, int sizeY, CharacterManager characterManagerRef)
+        GlobalResource globalResource;
+
+        public Map(int sizeX, int sizeY, CharacterManager characterManagerRef, GlobalResource globalResourceReference)
         {
             mapSizeX = sizeX;
             mapSizeY = sizeY;
             characterManager = characterManagerRef;
+            globalResource = globalResourceReference;
 
             backgroundtiles = new int[mapSizeX, mapSizeY];
 

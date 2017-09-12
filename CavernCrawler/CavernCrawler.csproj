@@ -133,9 +133,15 @@
     </None>
     <None Include="bin\x64\Debug\CavernCrawler.exe.config" />
     <None Include="bin\x64\Debug\CavernCrawler.vshost.exe.config" />
+    <None Include="Content\Fonts\novem.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="Content\Fonts\PressStart2P-Regular.ttf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <Content Include="Content\Textures\Tx_GUI\panel_console.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -2019,9 +2025,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Textures\Tx_GUI\panel_background.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Textures\Tx_GUI\panel_console.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Textures\Tx_GUI\tab_label_item.png">

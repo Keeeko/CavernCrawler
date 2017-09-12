@@ -33,11 +33,13 @@ namespace CavernCrawler
             if (rightKeyPressed)
             {
                 thePlayer.Move(1, 0);
+                mainCamera.eventConsole.AddTextToConsole("Testing the feature for snapping text whilst scrolled!");
             }
 
             if (leftKeyPressed)
             {
                 thePlayer.Move(-1, 0);
+                mainCamera.eventConsole.AddTextToConsole("This is a test of the console system, fuck the system!");
             }
             else if (downKeyPressed)
             {
@@ -51,15 +53,15 @@ namespace CavernCrawler
             //Camera controls
             if (Keyboard.IsKeyPressed(Keyboard.Key.Up))
             {
-                mainCamera.MoveCamera(0, -1);
+                mainCamera.eventConsole.ScrollConsoleView(-1.0f);
             }
             else if (Keyboard.IsKeyPressed(Keyboard.Key.Down))
             {
-                mainCamera.MoveCamera(0, 1);
+                mainCamera.eventConsole.ScrollConsoleView(1.0f);
             }
             else if (Keyboard.IsKeyPressed(Keyboard.Key.Right))
             {
-                mainCamera.MoveCamera(1, 0);
+                //mainCamera.eventConsole.AddTextToConsole("Testing the feature for snapping text whilst scrolled!");
             }
             else if (Keyboard.IsKeyPressed(Keyboard.Key.Left))
             {
@@ -108,6 +110,7 @@ namespace CavernCrawler
             if (rightKeyPreviousFrameState == false && Keyboard.IsKeyPressed(Keyboard.Key.D))
             {
                 rightKeyPressed = true;
+
             }
             else
             {

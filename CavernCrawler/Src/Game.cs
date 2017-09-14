@@ -46,8 +46,9 @@ namespace CavernCrawler
         {
             globalResource = new GlobalResource();
             characterManager = new CharacterManager(theMap);
-            theMap = new Map(70, 50, characterManager, globalResource);
             mainCamera = new Camera(1440, 1080, 12.5f, 0.75f, 0.45f, globalResource);
+            theMap = new Map(70, 50, characterManager, globalResource);
+
             deltaClock = new Clock();
             inputManager = new InputManager();
             

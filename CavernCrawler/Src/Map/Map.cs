@@ -80,7 +80,7 @@ namespace CavernCrawler
         //Hardcoded for the time being, will clean up later
         public void PlaceCharacters()
         {
-            player = new Character(this, characterManager, rooms[0].originX, rooms[0].originY, "Player");
+            player = new Character(this, characterManager, rooms[0].originX, rooms[0].originY, "Player", globalResource);
             player.graphicsID = 99;
 
             PlaceMonster(rooms[0].originX + 2, rooms[0].originY + 2);
@@ -94,7 +94,7 @@ namespace CavernCrawler
             }
             else
             {
-                Character monster = new Character(this, characterManager, xPos, yPos, "Dragon");
+                Character monster = new Character(this, characterManager, xPos, yPos, "Dragon", globalResource);
                 monster.graphicsID = 91;
             }
         }

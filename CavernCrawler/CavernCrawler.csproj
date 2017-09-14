@@ -126,6 +126,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="Src\Map\Room.cs" />
+    <Compile Include="Src\World\ItemContainer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">

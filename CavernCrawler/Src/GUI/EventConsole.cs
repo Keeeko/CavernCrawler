@@ -83,20 +83,7 @@ namespace CavernCrawler
             //Wrap text if it exceeds maximum line length
             if (text.Length > maxLineLength)
             {
-                //If the character that exceeds the length is a space, then we dont need to shift any letters
-                if (stringBuilder[maxLineLength] != ' ')
-                {
-                    //Increase the size of the string by 1 to allow for the insertion of the escape character
-                    stringBuilder.Append(' ');
-
-                    for (int i = 0; i < text.Length - maxLineLength; i++)
-                    {
-                        //Start at the end of the string, move each character forward, since arrays start at 0 we have to deduct 1 from the string length to ensure we dont go overbounds
-                        stringBuilder[(stringBuilder.Length - 1) - i] = stringBuilder[(stringBuilder.Length - 1) - (i + 1)];
-                    }
-                }
-
-                stringBuilder[maxLineLength] = '\n';
+                stringBuilder.Insert(maxLineLength, '\n');
                 occupiedLines++;
             }
 

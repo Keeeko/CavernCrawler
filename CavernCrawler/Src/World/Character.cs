@@ -25,10 +25,12 @@ namespace CavernCrawler
         public string name;
 
         public Map currentMap;
+        public ItemContainer inventory;
+        public GlobalResource globalResource;
 
         CharacterManager characterManager;
 
-        public Character(Map mapReference, CharacterManager characterManagerReference)
+        public Character(Map mapReference, CharacterManager characterManagerReference, GlobalResource theGlobalResource)
         {
             xPos = 3;
             yPos = 3;
@@ -36,14 +38,18 @@ namespace CavernCrawler
             isMale = true;
             maxHealth = 100.0f;
             currentHealth = maxHealth;
+            globalResource = theGlobalResource;
             currentMap = mapReference;
+            inventory = new ItemContainer(5);
+            inventory.SetContainerName("inventory");
+            inventory.PrintContentsToConsole(globalResource.GeteventConsole());
 
             characterManager = characterManagerReference;
             characterManager.AddCharacter(this);
             currentMap.SetCharacterMap(xPos, yPos, this);
         }
 
-        public Character(Map mapReference, CharacterManager characterManagerReference, int xPosRef, int yPosRef, string nameRef)
+        public Character(Map mapReference, CharacterManager characterManagerReference, int xPosRef, int yPosRef, string nameRef, GlobalResource theGlobalResource)
         {
             xPos = xPosRef;
             yPos = yPosRef;
@@ -54,7 +60,11 @@ namespace CavernCrawler
             currentHealth = maxHealth;
             currentMap = mapReference;
             name = nameRef;
+            globalResource = theGlobalResource;
 
+            inventory = new ItemContainer(5);
+            inventory.SetContainerName("inventory");
+            inventory.PrintContentsToConsole(globalResource.GeteventConsole());
             characterManager = characterManagerReference;
             characterManager.AddCharacter(this);
             currentMap.SetCharacterMap(xPos, yPos, this);

@@ -35,8 +35,10 @@ namespace CavernCrawler
 
         //Reference to the console
         private EventConsole eventConsole;
+        private GUIPanel guiPanel;
 
         private Map map;
+        private Character player;
 
         public GlobalResource()
         {
@@ -51,6 +53,16 @@ namespace CavernCrawler
         public void SetMainView(View mainViewRef)
         {
             mainView = mainViewRef;
+        }
+
+        public Character GetPlayer()
+        {
+            return player;
+        }
+
+        public void SetPlayer(Character value)
+        {
+            player = value;
         }
 
         public RenderWindow GetWindow()
@@ -73,6 +85,15 @@ namespace CavernCrawler
             eventConsole = value;
         }
 
+        public GUIPanel GetGUIPanel()
+        {
+            return guiPanel;
+        }
+
+        public void SetGUIPanel(GUIPanel value)
+        {
+            guiPanel = value;
+        }
         public Map GetCurrentMap()
         {
             return map;

@@ -82,6 +82,7 @@ namespace CavernCrawler
         {
             player = new Character(this, characterManager, rooms[0].originX, rooms[0].originY, "Player", globalResource);
             player.graphicsID = 99;
+            globalResource.SetPlayer(player);
 
             PlaceMonster(rooms[0].originX + 2, rooms[0].originY + 2);
         }

@@ -40,7 +40,7 @@ namespace CavernCrawler
             currentHealth = maxHealth;
             globalResource = theGlobalResource;
             currentMap = mapReference;
-            inventory = new ItemContainer(5);
+            inventory = new ItemContainer(15, globalResource);
             inventory.SetContainerName("inventory");
             inventory.PrintContentsToConsole(globalResource.GeteventConsole());
 
@@ -62,7 +62,7 @@ namespace CavernCrawler
             name = nameRef;
             globalResource = theGlobalResource;
 
-            inventory = new ItemContainer(5);
+            inventory = new ItemContainer(15, globalResource);
             inventory.SetContainerName("inventory");
             inventory.PrintContentsToConsole(globalResource.GeteventConsole());
             characterManager = characterManagerReference;

@@ -110,12 +110,14 @@
   <ItemGroup>
     <Compile Include="Src\Camera\Camera.cs" />
     <Compile Include="Src\CharacterManager.cs" />
+    <Compile Include="Src\GUI\ContainerSlot.cs" />
     <Compile Include="Src\GUI\EventConsole.cs" />
+    <Compile Include="Src\GUI\GUIPanel.cs" />
     <Compile Include="Src\World\Character.cs" />
     <Compile Include="Src\Game.cs" />
     <Compile Include="Src\GlobalResource.cs" />
     <Compile Include="Src\InputManager.cs" />
-    <Compile Include="Src\World\Item.cs" />
+    <Compile Include="Src\World\Items\Item.cs" />
     <Compile Include="Src\Map\Map.cs" />
     <Compile Include="Src\Map\MapGenerator.cs" />
     <Compile Include="Src\Program.cs" />
@@ -140,6 +142,12 @@
     <None Include="Content\Fonts\PressStart2P-Regular.ttf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <Content Include="Content\Textures\Tx_GUI\inventorySlot.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_GUI\panel_backgroundBase.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\Textures\Tx_GUI\panel_console.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -2682,8 +2690,12 @@
     <Content Include="Content\Textures\Tx_Item\weapon\scimitar2.png" />
     <Content Include="Content\Textures\Tx_Item\weapon\scythe1.png" />
     <Content Include="Content\Textures\Tx_Item\weapon\scythe2.png" />
-    <Content Include="Content\Textures\Tx_Item\weapon\short_sword1.png" />
-    <Content Include="Content\Textures\Tx_Item\weapon\short_sword2.png" />
+    <Content Include="Content\Textures\Tx_Item\weapon\short_sword1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_Item\weapon\short_sword2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\Textures\Tx_Item\weapon\spear1_elven.png" />
     <Content Include="Content\Textures\Tx_Item\weapon\spear2.png" />
     <Content Include="Content\Textures\Tx_Item\weapon\spiked_flail1.png" />
@@ -5039,6 +5051,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin\x64\Debug\Content\Textures\" />
+    <Folder Include="Content\Audio\Fx\" />
+    <Folder Include="Content\Audio\Music\" />
+    <Folder Include="Content\Dialogue\" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">

@@ -104,7 +104,7 @@ namespace CavernCrawler
             List<Item> itemList = GetContents();
             foreach(Item item in itemList)
             {
-                eventConsole.AddTextToConsole(containerName + " has a: " + item.name);
+                //eventConsole.AddTextToConsole(containerName + " has a: " + item.name);
             }
         }
 

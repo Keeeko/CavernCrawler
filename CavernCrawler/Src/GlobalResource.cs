@@ -33,6 +33,10 @@ namespace CavernCrawler
         //Reference to the renderWindow
         public RenderWindow window;
 
+        //Reference to the AudioManager
+        private AudioManager audioManager;
+        private InputManager inputManager;
+
         //Reference to the console
         private EventConsole eventConsole;
         private GUIPanel guiPanel;
@@ -63,6 +67,26 @@ namespace CavernCrawler
         public void SetPlayer(Character value)
         {
             player = value;
+        }
+
+        public InputManager GetInputManager()
+        {
+            return inputManager;
+        }
+
+        public void SetInputManager(InputManager value)
+        {
+            inputManager = value;
+        }
+
+        public AudioManager GetAudioManager()
+        {
+            return audioManager;
+        }
+
+        public void SetAudioManager(AudioManager value)
+        {
+            audioManager = value;
         }
 
         public RenderWindow GetWindow()

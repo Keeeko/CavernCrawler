@@ -46,6 +46,9 @@ namespace CavernCrawler
 
         GlobalResource globalResource;
 
+        Image tileSelectorImage;
+        Texture tileSelectorTexture;
+
         public Map(int sizeX, int sizeY, CharacterManager characterManagerRef, GlobalResource globalResourceReference)
         {
             mapSizeX = sizeX;
@@ -117,11 +120,14 @@ namespace CavernCrawler
             mapTileGraphics[91] = new Texture(@"Content\Textures\Tx_Monster\dragon.png");
             mapTileGraphics[99] = new Texture(@"Content\Textures\Tx_Player\base\human_m.png");
 
+            tileSelectorImage = new Image(@"Content\Textures\Tx_GUI\tileSelector.png");
+            tileSelectorImage.CreateMaskFromColor(new Color(255, 0, 255));
+            tileSelectorTexture = new Texture(tileSelectorImage);
 
 
         }
 
-        public void DrawMap(RenderWindow window)
+        public void DrawMap()
         {
             
             for (int x = 0; x < mapSizeX; x++)
@@ -132,7 +138,7 @@ namespace CavernCrawler
                         //retrieve the correct texture for displaying by using the tile value of the current square as a key in a texture dictionary
                         Sprite tempSprite = new Sprite(mapTileGraphics[backgroundtiles[x,y]]);
                         tempSprite.Position = new Vector2f(x *  TILE_SIZE, y * TILE_SIZE);
-                        window.Draw(tempSprite);
+                        globalResource.window.Draw(tempSprite);
 
                     //Draw items
 
@@ -143,10 +149,25 @@ namespace CavernCrawler
                         //characters graphicsID and use this to display the texture from the texture dictionary
                         Sprite tempSpriteC = new Sprite(mapTileGraphics[characterMap[new MapCoordinates(x, y)].graphicsID]);
                         tempSpriteC.Position = new Vector2f(x * TILE_SIZE, y * TILE_SIZE);
-                        window.Draw(tempSpriteC);
+                        globalResource.window.Draw(tempSpriteC);
                     }
                 }
             }
+
+            DrawTileCursor();
+        }
+
+        public void DrawTileCursor()
+        {
+            //Calculate the locations of the 
+            Vector2i mouseTilePos = ((globalResource.GetInputManager().GetMouseCoordinates()));
+            Vector2f worldMouseTilePos = (globalResource.window.MapPixelToCoords(mouseTilePos) / 32);
+            worldMouseTilePos.X = (float)Math.Floor((decimal)worldMouseTilePos.X);
+            worldMouseTilePos.Y = (float)Math.Floor((decimal)worldMouseTilePos.Y);
+
+            Sprite drawSprite = new Sprite(tileSelectorTexture);
+            drawSprite.Position = worldMouseTilePos * 32.0f;
+            globalResource.window.Draw(drawSprite);
         }
 
         public int GetMapTile(int xPos, int yPos)

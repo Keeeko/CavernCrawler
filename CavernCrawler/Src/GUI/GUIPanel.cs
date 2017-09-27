@@ -59,9 +59,9 @@ namespace CavernCrawler
 
             foreach(Item item in items)
             {
-                Text writeText = new Text(item.name, guiFont, 18);
-                writeText.Position = guiView.Center;
-                window.Draw(writeText);
+               // Text writeText = new Text(item.name, guiFont, 18);
+                //writeText.Position = guiView.Center;
+                //window.Draw(writeText);
             }
 
         }

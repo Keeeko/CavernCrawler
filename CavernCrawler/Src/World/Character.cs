@@ -99,9 +99,9 @@ namespace CavernCrawler
 
         public void Attack(Character target)
         {
-            Console.WriteLine(name + " attacks " + target.name + " for " + damage + " damage!");
+            globalResource.GeteventConsole().AddTextToConsole(name + " attacks " + target.name + " for " + damage + " damage!");
             target.currentHealth -= damage;
-            Console.Write(target.name + " has " + target.currentHealth + "health left!\n");
+            globalResource.GeteventConsole().AddTextToConsole(target.name + " has " + target.currentHealth + "health left!\n");
         }
 
         public void MoveTo(int xPosition, int yPosition)
@@ -113,6 +113,7 @@ namespace CavernCrawler
         public void Die()
         {
             currentMap.RemoveCharacterFromPosition(xPos, yPos);
+            //globalResource.GeteventConsole().AddTextToConsole(this.name + " has died!");
             //characterManager.RemoveCharacter(this);
         }
     }

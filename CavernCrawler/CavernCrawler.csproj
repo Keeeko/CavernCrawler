@@ -108,6 +108,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Src\Audio\AudioManager.cs" />
     <Compile Include="Src\Camera\Camera.cs" />
     <Compile Include="Src\CharacterManager.cs" />
     <Compile Include="Src\GUI\ContainerSlot.cs" />
@@ -2055,6 +2056,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Textures\Tx_GUI\tab_unselected.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_GUI\tileSelector.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Textures\Tx_Item\amulet\artefact\urand_air.png" />

@@ -24,6 +24,7 @@ namespace CavernCrawler
         Camera mainCamera;
         InputManager inputManager;
         CharacterManager characterManager;
+        AudioManager audioManager;
         GlobalResource globalResource;
 
         Time deltaTime;
@@ -46,14 +47,18 @@ namespace CavernCrawler
         {
             globalResource = new GlobalResource();
             characterManager = new CharacterManager(theMap);
+            audioManager = new AudioManager(globalResource);
             mainCamera = new Camera(1440, 1080, 12.5f, 0.75f, 0.45f, globalResource);
             theMap = new Map(70, 50, characterManager, globalResource);
 
             deltaClock = new Clock();
-            inputManager = new InputManager();
+            inputManager = new InputManager(globalResource);
             
             mainCamera.SetCameraPosition(theMap.player.xPos, theMap.player.yPos);
             mainCamera.SetCameraTarget(theMap.player);
+
+            //Temporary
+            //audioManager.PlayTrack();
         }
 
         public void Update()
@@ -61,13 +66,14 @@ namespace CavernCrawler
             deltaTime = deltaClock.Restart();
             inputManager.Update(theMap.player, mainCamera);
             characterManager.Update();
+            audioManager.Update();
             mainCamera.Update();
         }
 
         public void Draw()
         {
             globalResource.GetWindow().Clear();
-            theMap.DrawMap(globalResource.GetWindow());
+            theMap.DrawMap();
 
             mainCamera.DrawGUI();
 

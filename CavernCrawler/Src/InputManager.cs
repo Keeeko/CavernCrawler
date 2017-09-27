@@ -14,6 +14,8 @@ namespace CavernCrawler
 {
     class InputManager
     {
+        GlobalResource globalResource;
+
         bool upKeyPressed = false;
         bool rightKeyPressed = false;
         bool leftKeyPressed = false;
@@ -24,10 +26,18 @@ namespace CavernCrawler
         bool rightKeyPreviousFrameState;
         bool downKeyPreviousFrameState;
 
+        Vector2i mousePos;
+
+        public InputManager(GlobalResource theGlobalResource)
+        {
+            globalResource = theGlobalResource;
+            globalResource.SetInputManager(this);
+        }
 
         public void Update(Character thePlayer, Camera mainCamera)
         {
             PollKeyboard();
+            UpdateMouse();
 
             //Player controls
             if (rightKeyPressed)
@@ -81,6 +91,16 @@ namespace CavernCrawler
             rightKeyPreviousFrameState = Keyboard.IsKeyPressed(Keyboard.Key.D);
             leftKeyPreviousFrameState = Keyboard.IsKeyPressed(Keyboard.Key.A);
             downKeyPreviousFrameState = Keyboard.IsKeyPressed(Keyboard.Key.S);
+        }
+
+        public void UpdateMouse()
+        {
+            mousePos = Mouse.GetPosition(globalResource.window);
+        }
+
+        public Vector2i GetMouseCoordinates()
+        {
+            return mousePos;
         }
 
         void PollKeyboard()

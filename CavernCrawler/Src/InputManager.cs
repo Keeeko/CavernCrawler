@@ -16,15 +16,17 @@ namespace CavernCrawler
     {
         GlobalResource globalResource;
 
-        bool upKeyPressed = false;
-        bool rightKeyPressed = false;
-        bool leftKeyPressed = false;
-        bool downKeyPressed = false;
+        public bool upKeyPressed = false;
+        public bool rightKeyPressed = false;
+        public bool leftKeyPressed = false;
+        public bool downKeyPressed = false;
+        public bool leftMouseButtonPressed = false;
 
         bool upKeyPreviousFrameState;
         bool leftKeyPreviousFrameState;
         bool rightKeyPreviousFrameState;
         bool downKeyPreviousFrameState;
+        bool leftMousePreviousFrameState;
 
         Vector2i mousePos;
 
@@ -91,6 +93,7 @@ namespace CavernCrawler
             rightKeyPreviousFrameState = Keyboard.IsKeyPressed(Keyboard.Key.D);
             leftKeyPreviousFrameState = Keyboard.IsKeyPressed(Keyboard.Key.A);
             downKeyPreviousFrameState = Keyboard.IsKeyPressed(Keyboard.Key.S);
+            leftMousePreviousFrameState = Mouse.IsButtonPressed(Mouse.Button.Left);
         }
 
         public void UpdateMouse()
@@ -105,8 +108,16 @@ namespace CavernCrawler
 
         void PollKeyboard()
         {
-            
-            if(upKeyPreviousFrameState == false && Keyboard.IsKeyPressed(Keyboard.Key.W))
+            if (leftMousePreviousFrameState == false && Mouse.IsButtonPressed(Mouse.Button.Left))
+            {
+                leftMouseButtonPressed = true;
+            }
+            else
+            {
+                leftMouseButtonPressed = false;
+            }
+
+            if (upKeyPreviousFrameState == false && Keyboard.IsKeyPressed(Keyboard.Key.W))
             {
                 upKeyPressed = true;
             }

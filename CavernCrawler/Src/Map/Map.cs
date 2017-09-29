@@ -80,6 +80,19 @@ namespace CavernCrawler
             PlaceCharacters();
         }
 
+        public void Update()
+        {
+            if(globalResource.GetInputManager().leftMouseButtonPressed)
+            {
+                Vector2i mouseTilePos = ((globalResource.GetInputManager().GetMouseCoordinates()));
+                Vector2f worldMouseTilePos = (globalResource.window.MapPixelToCoords(mouseTilePos) / 32);
+                worldMouseTilePos.X = (float)Math.Floor((decimal)worldMouseTilePos.X);
+                worldMouseTilePos.Y = (float)Math.Floor((decimal)worldMouseTilePos.Y);
+
+                globalResource.GetPlayer().MoveTo((int)worldMouseTilePos.X, (int)worldMouseTilePos.Y);
+            }
+        }
+
         //Hardcoded for the time being, will clean up later
         public void PlaceCharacters()
         {

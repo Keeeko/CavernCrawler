@@ -65,6 +65,7 @@ namespace CavernCrawler
         {
             deltaTime = deltaClock.Restart();
             inputManager.Update(theMap.player, mainCamera);
+            theMap.Update();
             characterManager.Update();
             audioManager.Update();
             mainCamera.Update();

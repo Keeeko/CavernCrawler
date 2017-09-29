@@ -106,8 +106,21 @@ namespace CavernCrawler
 
         public void MoveTo(int xPosition, int yPosition)
         {
-            xPos = xPosition;
-            yPos = yPosition;
+            if (currentMap.GetCharacterFromMap(xPosition, yPosition) == null && currentMap.GetMapTile(xPosition, yPosition) == 0)
+            {
+                //Delete characters old position in dictionary
+                currentMap.RemoveCharacterFromPosition(xPos, yPos);
+
+                xPos = xPosition;
+                yPos = yPosition;
+
+                //Set character to new position in character dictionary
+                currentMap.SetCharacterMap(xPos, yPos, this);
+            }
+            else if (currentMap.GetCharacterFromMap(xPosition, yPosition) != null)
+            {
+                Attack(currentMap.GetCharacterFromMap(xPosition, yPosition));
+            }
         }
 
         public void Die()

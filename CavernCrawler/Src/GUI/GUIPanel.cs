@@ -39,8 +39,9 @@ namespace CavernCrawler
 
         public void DrawGUIPanel()
         {
-            window.SetView(guiView);
             guiView.Viewport = new FloatRect(0.7f, 0.0f, 0.3f, 1f);
+            window.SetView(guiView);
+
 
             Sprite tempSprite = new Sprite(guiPanelTexture);
             tempSprite.Position = new Vector2f(0.0f, 0.0f);

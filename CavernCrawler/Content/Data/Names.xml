@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Names>
+  
+  <Enemies>
+    <Dragons>
+      <Name>Thorax</Name>
+      <Name>Wonderflox</Name>
+      <Name>Algeleria</Name>
+      <Name>Croxon</Name>
+    </Dragons>
+    <Ghosts>
+      <Name>Spoopy</Name>
+      <Name>Spectron</Name>
+      <Name>Wailes</Name>
+      <Name></Name>
+    </Ghosts>
+    <Bandits></Bandits>
+  </Enemies>
+  
+  <Characters>
+    <ShopKeepers>
+      <Name>David</Name>
+      <Name>James</Name>
+      <Name>Barry</Name>
+      <Name>Christopher</Name>
+    </ShopKeepers>
+  </Characters>
+  
+</Names>

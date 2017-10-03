@@ -17,15 +17,37 @@ namespace CavernCrawler
         public int yPos;
         public int graphicsID;
         public int maxMoves;
+        public float currentGold;
+
         public bool isMale;
+
         public float maxHealth;
         public float currentHealth;
-        public float damage;
+        public float physicalDamage;
+        public float magicDamage;
+        public float darkDamage;
+        public float fireDamage;
+        public float iceDamage;
+        public float windDamage;
+        public float attackSpeed;
         public float defense;
+
+
         public string name;
 
         public Map currentMap;
         public ItemContainer inventory;
+
+        public Item helmetItem;
+        public Item chestItem;
+        public Item legItem;
+        public Item gloveItem;
+        public Item leftHandWeapon;
+        public Item rightHandWeapon;
+        public Item feetItem;
+        public Item neckclaceItem;
+        public Item ringItem;
+
         public GlobalResource globalResource;
 
         CharacterManager characterManager;
@@ -54,7 +76,8 @@ namespace CavernCrawler
             xPos = xPosRef;
             yPos = yPosRef;
             maxMoves = 1;
-            damage = 5;
+            currentGold = 0;
+            physicalDamage = 5;
             isMale = true;
             maxHealth = 100.0f;
             currentHealth = maxHealth;
@@ -100,7 +123,7 @@ namespace CavernCrawler
         public void Attack(Character target)
         {
             globalResource.GeteventConsole().AddTextToConsole(name + " attacks " + target.name + " for " + damage + " damage!");
-            target.currentHealth -= damage;
+            target.currentHealth -= physicalDamage;
             globalResource.GeteventConsole().AddTextToConsole(target.name + " has " + target.currentHealth + "health left!\n");
         }
 
@@ -121,6 +144,12 @@ namespace CavernCrawler
             {
                 Attack(currentMap.GetCharacterFromMap(xPosition, yPosition));
             }
+        }
+
+        public void Equip(Item item)
+        {
+            // assign item to slot
+            // Take stats of weapon and add them to player
         }
 
         public void Die()

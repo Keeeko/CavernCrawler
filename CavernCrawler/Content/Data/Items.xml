@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Items>
+  <Weapons>
+    <OneHanded>
+      <ShortSword>
+        <PhysicalDamage> 5 </PhysicalDamage>
+        <AttackSpeed> 1.3 </AttackSpeed>
+        <DamageType>Slash</DamageType>
+        <ElementalDamage>
+          <MagicDamage>0</MagicDamage>
+          <DarkDamage>0</DarkDamage>
+          <FireDamage>0</FireDamage>
+          <IceDamage>0</IceDamage>
+          <WindDamage>0</WindDamage>
+        </ElementalDamage>
+        <GoldValue> 425 </GoldValue>
+        <Description> Your standard short sword.</Description>
+        <FileName>shortSword.png</FileName>
+      </ShortSword>
+
+      <LongSword>
+        <Damage> 5 </Damage>
+        <AttackSpeed> 1.3 </AttackSpeed>
+        <Description>Longer sword yet, maybe the longest...? </Description>
+        <FileName>longSword.png</FileName>
+      </LongSword>
+    </OneHanded>
+    
+    <TwoHanded>
+      <GreatSword>
+        <Damage> 5 </Damage>
+        <AttackSpeed> 1.3 </AttackSpeed>
+        <Description>Defo the longest sword...? </Description>
+        <FileName>longSword.png</FileName>
+      </GreatSword>
+    </TwoHanded>
+  </Weapons>
+  
+  <Armor>
+    <BronzeHelmet>
+      <Defense>10</Defense>
+    </BronzeHelmet>
+  </Armor>
+
+  <KeyItems>
+    <DoorKey>
+      <Description>A key to a door...</Description>
+    </DoorKey>
+  </KeyItems>
+
+  <Consumeables>
+    
+  </Consumeables>
+</Items>

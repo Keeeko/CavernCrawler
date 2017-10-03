@@ -23,6 +23,8 @@ namespace CavernCrawler
         static public int itemIDCount = 0;
         public int itemID;
         public string name;
+        public string description;
+        public string statDescription;
         public Vector2f position;
         bool isEquippable;
 
@@ -34,6 +36,8 @@ namespace CavernCrawler
             itemImage.CreateMaskFromColor(Color.White);
             itemTexture = new Texture(itemImage);
             name = pName;
+            description = "Your standard issue short sword.";
+            statDescription = "Damage: 5 \nAttack Speed: 1.3\nDamage Type: Slashing \nGold Value: 432 \n\n- Attributes -\n* One handed \n* Double Strike  ";
             itemState = State.IN_CONTAINER;
             isEquippable = false;
         }
@@ -77,6 +81,11 @@ namespace CavernCrawler
         public void SetParentSlot(ContainerSlot slot)
         {
             parentSlot = slot;
+        }
+
+        public Texture GetTexture()
+        {
+            return itemTexture;
         }
     }
 }

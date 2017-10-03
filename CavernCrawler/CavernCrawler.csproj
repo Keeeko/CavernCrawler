@@ -114,6 +114,7 @@
     <Compile Include="Src\GUI\ContainerSlot.cs" />
     <Compile Include="Src\GUI\EventConsole.cs" />
     <Compile Include="Src\GUI\GUIPanel.cs" />
+    <Compile Include="Src\GUI\ItemPreviewPanel.cs" />
     <Compile Include="Src\World\Character.cs" />
     <Compile Include="Src\Game.cs" />
     <Compile Include="Src\GlobalResource.cs" />
@@ -144,6 +145,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <Content Include="Content\Textures\Tx_GUI\inventorySlot.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Textures\Tx_GUI\ItemPreview.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Textures\Tx_GUI\panel_backgroundBase.png">

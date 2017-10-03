@@ -27,6 +27,8 @@ namespace CavernCrawler
         AudioManager audioManager;
         GlobalResource globalResource;
 
+        ItemPreviewPanel test;
+
         Time deltaTime;
         Clock deltaClock;
 
@@ -57,6 +59,8 @@ namespace CavernCrawler
             mainCamera.SetCameraPosition(theMap.player.xPos, theMap.player.yPos);
             mainCamera.SetCameraTarget(theMap.player);
 
+            test = new ItemPreviewPanel(globalResource.GetPlayer().inventory.GetContents()[0], new Vector2f(252.0f, 351.0f), new Vector2f(504.0f, 702.0f));
+
             //Temporary
             //audioManager.PlayTrack();
         }
@@ -74,9 +78,12 @@ namespace CavernCrawler
         public void Draw()
         {
             globalResource.GetWindow().Clear();
+
             theMap.DrawMap();
 
             mainCamera.DrawGUI();
+
+            test.Draw(globalResource);
 
             //Draw everything to screen
             globalResource.GetWindow().Display();

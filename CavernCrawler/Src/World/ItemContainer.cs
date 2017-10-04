@@ -59,7 +59,7 @@ namespace CavernCrawler
 
                 Vector2f slotPos = new Vector2f(drawPosition.X + xPos * slotSpacing.X, drawPosition.Y + yPos * slotSpacing.Y);
                 slots.Add(new ContainerSlot(slotPos));
-                AddItemToContainer(new Item("Sword"));
+                AddItemToContainer(new Item("Short Sword"));
                 slots[i].SetContainedItem(GetContents()[i]);
 
                 xPos++;

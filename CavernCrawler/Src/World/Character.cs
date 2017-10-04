@@ -88,6 +88,7 @@ namespace CavernCrawler
             inventory = new ItemContainer(15, globalResource);
             inventory.SetContainerName("inventory");
             inventory.PrintContentsToConsole(globalResource.GeteventConsole());
+            Equip(inventory.GetContents()[0]);
             characterManager = characterManagerReference;
             characterManager.AddCharacter(this);
             currentMap.SetCharacterMap(xPos, yPos, this);
@@ -122,7 +123,7 @@ namespace CavernCrawler
 
         public void Attack(Character target)
         {
-            globalResource.GeteventConsole().AddTextToConsole(name + " attacks " + target.name + " for " + damage + " damage!");
+            globalResource.GeteventConsole().AddTextToConsole(name + " attacks " + target.name + " for " + physicalDamage + " damage!");
             target.currentHealth -= physicalDamage;
             globalResource.GeteventConsole().AddTextToConsole(target.name + " has " + target.currentHealth + "health left!\n");
         }
@@ -150,6 +151,7 @@ namespace CavernCrawler
         {
             // assign item to slot
             // Take stats of weapon and add them to player
+            physicalDamage += item.physicalDamage;
         }
 
         public void Die()

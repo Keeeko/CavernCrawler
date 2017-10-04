@@ -131,6 +131,7 @@
     </Compile>
     <Compile Include="Src\Map\Room.cs" />
     <Compile Include="Src\World\ItemContainer.cs" />
+    <Compile Include="Src\World\Items\ItemGenerator.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
@@ -144,6 +145,12 @@
     <None Include="Content\Fonts\PressStart2P-Regular.ttf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <Content Include="Content\Data\Items.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Data\Names.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\Textures\Tx_GUI\inventorySlot.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

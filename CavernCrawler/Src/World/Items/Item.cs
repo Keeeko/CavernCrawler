@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 using SFML;
 using SFML.System;
 using SFML.Graphics;
@@ -21,7 +22,18 @@ namespace CavernCrawler
         ContainerSlot parentSlot;
 
         static public int itemIDCount = 0;
+
         public int itemID;
+        public int goldValue;
+        public float physicalDamage;
+        public float magicDamage;
+        public float darkDamage;
+        public float fireDamage;
+        public float iceDamage;
+        public float windDamage;
+        public float attackSpeed;
+        public float defense;
+
         public string name;
         public string description;
         public string statDescription;
@@ -32,14 +44,52 @@ namespace CavernCrawler
         {
             itemIDCount++;
             itemID = itemIDCount;
-            itemImage = new Image(@"Content\Textures\Tx_Item\weapon\short_sword2.png");
+            name = pName;
+
+            LoadItemData();
+
             itemImage.CreateMaskFromColor(Color.White);
             itemTexture = new Texture(itemImage);
-            name = pName;
-            description = "Your standard issue short sword.";
-            statDescription = "Damage: 5 \nAttack Speed: 1.3\nDamage Type: Slashing \nGold Value: 432 \n\n- Attributes -\n* One handed \n* Double Strike  ";
+
             itemState = State.IN_CONTAINER;
             isEquippable = false;
+        }
+
+        public void LoadItemData()
+        {
+
+            XDocument itemsFile = new XDocument();
+            itemsFile = XDocument.Load(@"Content\Data\Items.xml");
+            IEnumerable<XElement> elements = itemsFile.Descendants();
+
+            foreach(XElement result in elements)
+            {
+                //This needs change to account for any type of item, not just weapons
+                if (result.Name.LocalName == "Weapon")
+                {
+                    if (result.Element("Name").Value == name)
+                    {
+                        Console.WriteLine(result.Element("Name").Value);
+                        //Load each eleements data into this item
+                        description = result.Element("Description").Value;
+                        physicalDamage = float.Parse(result.Element("PhysicalDamage").Value);
+                        attackSpeed = float.Parse(result.Element("AttackSpeed").Value);
+                        goldValue = int.Parse(result.Element("GoldValue").Value);
+                        isEquippable = true;
+
+                        // Elemental stats
+
+                        statDescription = "Damage: " + physicalDamage + " \nAttack Speed: " + attackSpeed +
+                        "\nDamage Type: Slashing \nGold Value: " + goldValue + "\n\n- Attributes -\n* One handed \n* Double Strike  ";
+
+                        itemImage = new Image(@"Content\Textures\Tx_Item\weapon\" + result.Element("FileName").Value);
+
+                    }
+                }
+                
+            }
+            
+
         }
 
         public void Draw(GlobalResource globalResource)

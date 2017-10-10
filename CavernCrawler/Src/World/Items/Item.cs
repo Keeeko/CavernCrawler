@@ -20,6 +20,7 @@ namespace CavernCrawler
         Image itemImage;
         Texture itemTexture;
         ContainerSlot parentSlot;
+        List<ItemProperty> itemProperties;
 
         static public int itemIDCount = 0;
 
@@ -35,16 +36,21 @@ namespace CavernCrawler
         public float defense;
 
         public string name;
+        string prefix;
+        string suffix;
         public string description;
         public string statDescription;
         public Vector2f position;
         bool isEquippable;
+        bool isStackable;
 
         public Item(string pName)
         {
             itemIDCount++;
             itemID = itemIDCount;
             name = pName;
+            itemProperties = new List<ItemProperty>();
+            
 
             LoadItemData();
 
@@ -53,6 +59,7 @@ namespace CavernCrawler
 
             itemState = State.IN_CONTAINER;
             isEquippable = false;
+            isStackable = false;
         }
 
         public void LoadItemData()
@@ -80,7 +87,7 @@ namespace CavernCrawler
                         // Elemental stats
 
                         statDescription = "Damage: " + physicalDamage + " \nAttack Speed: " + attackSpeed +
-                        "\nDamage Type: Slashing \nGold Value: " + goldValue + "\n\n- Attributes -\n* One handed \n* Double Strike  ";
+                        "\nDamage Type: Slashing \nGold Value: " + goldValue + "\n\n- Properties -  ";
 
                         itemImage = new Image(@"Content\Textures\Tx_Item\weapon\" + result.Element("FileName").Value);
 
@@ -104,6 +111,21 @@ namespace CavernCrawler
             itemState = state;
         }
 
+        public void UpdateItemDescription()
+        {
+            String propertiesString = null;
+            StringBuilder sb = new StringBuilder();
+
+            //Add property descriptions to end of item description
+            for(int i = 0; i < itemProperties.Count; i++)
+            {
+                propertiesString = sb.Append("\n" + itemProperties[i].description).ToString();
+            }
+
+            statDescription = "Damage: " + physicalDamage + " \nAttack Speed: " + attackSpeed +
+                        "\nDamage Type: Slashing \nGold Value: " + goldValue + "\n\n- Properties - " + propertiesString;
+        }
+
         public void MoveItemToWorld(Vector2f pos)
         {
             position = pos;
@@ -121,6 +143,37 @@ namespace CavernCrawler
         public void SetEquippable(bool value)
         {
             isEquippable = value;
+        }
+
+        public void AddProperty(ItemProperty property)
+        {
+            itemProperties.Add(property);
+
+            if(itemProperties.Count == 1)
+            {
+                //Add prefix to name
+                prefix = property.name;
+                name = name.Insert(0, prefix + " ");
+            }
+            else if(itemProperties.Count == 2)
+            {
+                //Add suffix to name
+                suffix = property.name;
+                name = name.Insert(name.Length, " of " + suffix);
+            }
+
+            if (property.physicalDamageIncrease != 0)
+            {
+                physicalDamage *= ((100 / property.physicalDamageIncrease) + 1);
+            }
+
+            if (property.attackSpeedIncrease != 0)
+            {
+                attackSpeed *= ((100 / property.attackSpeedIncrease) + 1);
+            }
+
+            UpdateItemDescription();
+
         }
 
         public ContainerSlot GetParentSlot()

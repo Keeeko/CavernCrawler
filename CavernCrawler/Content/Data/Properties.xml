@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Properties>
+  <Prefixes>
+    <Property>
+      <Name>Twisting</Name>
+      <PhysicalDamage>
+        <Min>100</Min>
+        <Max>15</Max>
+       </PhysicalDamage>
+      <AttackSpeed>
+        <Min>0</Min>
+        <Max>0</Max>
+      </AttackSpeed>
+        <Description>Increases physical damage by {0}%</Description>
+    </Property>
+  </Prefixes>
+  
+  <Suffixes>
+    <Property>
+      <Name>Haste</Name>
+      <PhysicalDamage>
+        <Min>0</Min>
+        <Max>0</Max>
+      </PhysicalDamage>
+      <AttackSpeed>
+        <Min>100</Min>
+        <Max>15</Max>
+      </AttackSpeed>
+      <Description>Increases attack speed by {0}%</Description>
+    </Property>
+  </Suffixes>
+</Properties>

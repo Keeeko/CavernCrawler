@@ -49,8 +49,11 @@ namespace CavernCrawler
             drawSprite.Position = position;
             globalResource.GetWindow().Draw(drawSprite);
 
-            containedItem.position = position;
-            containedItem.Draw(globalResource);
+            if (containedItem != null)
+            {
+                containedItem.position = position;
+                containedItem.Draw(globalResource);
+            }
         }
     }
 }

@@ -48,16 +48,19 @@ namespace CavernCrawler
         public void Init()
         {
             globalResource = new GlobalResource();
+
             characterManager = new CharacterManager(theMap);
             audioManager = new AudioManager(globalResource);
             mainCamera = new Camera(1440, 1080, 12.5f, 0.75f, 0.45f, globalResource);
             theMap = new Map(70, 50, characterManager, globalResource);
-
+            globalResource.GetPlayer().inventory.AddItemToContainer(ItemGenerator.GenerateItem());
+            globalResource.GetPlayer().Equip(globalResource.GetPlayer().inventory.GetContents()[0]);
             deltaClock = new Clock();
             inputManager = new InputManager(globalResource);
             
             mainCamera.SetCameraPosition(theMap.player.xPos, theMap.player.yPos);
             mainCamera.SetCameraTarget(theMap.player);
+
 
             test = new ItemPreviewPanel(globalResource.GetPlayer().inventory.GetContents()[0], new Vector2f(252.0f, 351.0f), new Vector2f(504.0f, 702.0f));
 

@@ -132,6 +132,7 @@
     <Compile Include="Src\Map\Room.cs" />
     <Compile Include="Src\World\ItemContainer.cs" />
     <Compile Include="Src\World\Items\ItemGenerator.cs" />
+    <Compile Include="Src\World\Items\ItemProperty.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
@@ -149,6 +150,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Data\Names.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Data\Properties.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Textures\Tx_GUI\inventorySlot.png">

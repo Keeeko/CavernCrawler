@@ -61,7 +61,7 @@ namespace CavernCrawler
             //Title
             Text writeText = new Text();
 
-            writeText.CharacterSize = 32;
+            writeText.CharacterSize = 26;
             writeText.Color = Color.Black;
             writeText.Position = new Vector2f(15.0f, 25.0f);
             writeText.Font = panelFont;

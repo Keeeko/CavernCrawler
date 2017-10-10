@@ -14,6 +14,10 @@ namespace CavernCrawler
             //This function will take in item type, rarity and item level, it will then load the correct properties from
             //properties definitions in the xml files and apply them to the item;
             Item item = new Item("Short Sword");
+            ItemProperty twistingProperty = new ItemProperty("Twisting");
+            ItemProperty hasteProperty = new ItemProperty("Haste");
+            item.AddProperty(twistingProperty);
+            item.AddProperty(hasteProperty);
             return item;
         }
     }

@@ -59,8 +59,8 @@ namespace CavernCrawler
 
                 Vector2f slotPos = new Vector2f(drawPosition.X + xPos * slotSpacing.X, drawPosition.Y + yPos * slotSpacing.Y);
                 slots.Add(new ContainerSlot(slotPos));
-                AddItemToContainer(new Item("Short Sword"));
-                slots[i].SetContainedItem(GetContents()[i]);
+                //AddItemToContainer(new Item("Short Sword"));
+                //slots[i].SetContainedItem(GetContents()[i]);
 
                 xPos++;
 
@@ -84,7 +84,7 @@ namespace CavernCrawler
             if(items.Count < itemCapacity)
             {
                 items.Add(item.itemID ,item);
-                slots[items.Count - 1].SetContainedItem(item);
+                slots[items.Count - 1].SetContainedItem(GetContents()[items.Count - 1]);
             }
         }
 
@@ -97,6 +97,11 @@ namespace CavernCrawler
         {
             itemContainer.AddItemToContainer(items[itemID]);
             //Remove from slot, need to find the slot the item was on and then remove it
+        }
+        
+        public void SetItemTo(int index, Item theItem)
+        {
+            items[index] = theItem;
         }
 
         public void PrintContentsToConsole(EventConsole eventConsole)
